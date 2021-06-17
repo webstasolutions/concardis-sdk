@@ -1,4 +1,5 @@
-<?php
+<?php declare(strict_types=1);
+
 namespace Concardis\Payengine\Lib;
 
 use Concardis\Payengine\Lib\Internal\Config\MerchantConfiguration;
@@ -18,12 +19,12 @@ class Payengine
     /**
      * @var Connection
      */
-    private $connection;
+    private Connection $connection;
 
     /**
      * @var MerchantConfiguration
      */
-    private $configuration;
+    private MerchantConfiguration $configuration;
 
     /**
      * @param MerchantConfiguration $configuration
@@ -37,44 +38,54 @@ class Payengine
 
     /**
      * @param ConnectionInterface $connection
+     * @return Payengine
      */
-    public function setConnection(ConnectionInterface $connection)
+    public function setConnection(ConnectionInterface $connection): self
     {
         $this->connection = $connection;
+        return $this;
     }
 
     /**
      * @param MerchantConfiguration $configuration
+     * @return Payengine
      */
-    public function setConfiguration(MerchantConfiguration $configuration)
+    public function setConfiguration(MerchantConfiguration $configuration): self
     {
         $this->configuration = $configuration;
+        return $this;
     }
 
     /**
-     * @param $customerId
+     * @param null $customerId
      *
      * @return Customers
+     * @throws \Exception
      */
-    public function customer($customerId = null){
+    public function customer($customerId = null): Customers
+    {
         return new Customers($this->connection, $customerId, null);
     }
 
     /**
-     * @param $paymentInstrumentId
+     * @param null $paymentInstrumentId
      *
      * @return PaymentInstruments
+     * @throws \Exception
      */
-    public function paymentinstruments($paymentInstrumentId = null){
+    public function paymentInstruments($paymentInstrumentId = null): PaymentInstruments
+    {
         return new PaymentInstruments($this->connection, $paymentInstrumentId, null);
     }
 
     /**
-     * @param $orderId
+     * @param null $orderId
      *
      * @return Orders
+     * @throws \Exception
      */
-    public function orders($orderId = null){
+    public function orders($orderId = null): Orders
+    {
         return new Orders($this->connection, $orderId, null);
     }
 }

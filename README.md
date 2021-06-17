@@ -10,16 +10,16 @@ Get and install composer for your system. <https://getcomposer.org>
 #### Via Packagist.org
 
 ~~~sh
-composer require payengine/php_sdk
+composer require webstasolutions/concardis-sdk
 ~~~
 
 #### By cloning
 ~~~sh
-git@github.com:concardis/PHP_SDK.git
+github.com:webstasolutions/concardis-sdk.git
 ~~~
 
 #### As release zip
-https://github.com/concardis/PHP_SDK/releases
+https://github.com/webstasolutions/concardis-sdk/releases
 
 ## Installation
 Uncompress the PHP SDK folder, change into the newly created folder and run

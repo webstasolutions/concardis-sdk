@@ -1,4 +1,5 @@
-<?php
+<?php declare(strict_types=1);
+
 namespace Concardis\Payengine\Lib\Test\Internal\Resource\Customers;
 
 require_once __DIR__ . "/../../../../../../../../autoload.php";
@@ -19,9 +20,10 @@ class CustomerPaymentInstrumentsTest extends TestCase
     /**
      * @var PayEngine
      */
-    private $payengine;
+    private PayEngine $payengine;
 
-    public function setup(){
+    public function setUp(): void
+    {
         $this->payengine = new PayEngine(new MerchantConfiguration());
         $this->payengine->setConnection($this->getConnectionMock());
     }
@@ -29,7 +31,8 @@ class CustomerPaymentInstrumentsTest extends TestCase
     /**
      * @return \PHPUnit_Framework_MockObject_MockObject
      */
-    protected function getConnectionMock(){
+    protected function getConnectionMock(): \PHPUnit_Framework_MockObject_MockObject
+    {
         $mock = $this->createMock(Connection::class);
 
         $mock->method('post')
@@ -44,15 +47,17 @@ class CustomerPaymentInstrumentsTest extends TestCase
     /**
      * @test
      */
-    public function postTest(){
-        $result = $this->payengine->customer('test123')->paymentInstruments()->post(array());
+    public function postTest()
+    {
+        $result = $this->payengine->customer('test123')->paymentInstruments()->post([]);
         $this->assertEquals(PaymentInstrumentFixture::getResponse(), $result);
     }
 
     /**
      * @test
      */
-    public function deleteTest(){
+    public function deleteTest()
+    {
         $result = $this->payengine->customer('test123')->paymentInstruments()->delete();
         $this->assertNull($result);
     }
@@ -60,7 +65,8 @@ class CustomerPaymentInstrumentsTest extends TestCase
     /**
      * @test
      */
-    public function getOneTest(){
+    public function getOneTest()
+    {
         $mock = $this->createMock(Connection::class);
         $mock->method('get')
             ->with('/customers/test123/payment-instruments/foobar123')
@@ -78,7 +84,8 @@ class CustomerPaymentInstrumentsTest extends TestCase
     /**
      * @test
      */
-    public function getAllTest(){
+    public function getAllTest()
+    {
         $mock = $this->createMock(Connection::class);
         $mock->method('get')
             ->with('/customers/test123/payment-instruments')
@@ -99,7 +106,7 @@ class CustomerPaymentInstrumentsTest extends TestCase
         $this->assertEquals(2, count($result->getElements()));
 
         $this->assertTrue(is_array($result->getElements()));
-        foreach($result->getElements() as $element){
+        foreach ($result->getElements() as $element) {
             $this->assertEquals(PaymentInstrumentFixture::getResponse(), $element);
         }
     }

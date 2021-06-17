@@ -10,7 +10,7 @@ use Concardis\Payengine\Lib\Models\Response\Order;
 class Transaction extends AbstractResponseModel
 {
 
-    protected $subModels = array(
+    protected array $subModels = array(
         'order' => Order::class,
         'transactions' => Transaction::class,
         'basket' => Item::class

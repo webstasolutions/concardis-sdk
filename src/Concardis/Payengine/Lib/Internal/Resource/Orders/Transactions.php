@@ -1,6 +1,8 @@
-<?php
+<?php declare(strict_types=1);
+
 namespace Concardis\Payengine\Lib\Internal\Resource\Orders;
 
+use Concardis\Payengine\Lib\Internal\AbstractClass\AbstractModel;
 use Concardis\Payengine\Lib\Internal\AbstractClass\AbstractResource;
 use Concardis\Payengine\Lib\Internal\Constants\Api;
 use Concardis\Payengine\Lib\Internal\Interfaces\Getable;
@@ -8,18 +10,24 @@ use Concardis\Payengine\Lib\Internal\Interfaces\Patchable;
 use Concardis\Payengine\Lib\Internal\Resource\Orders\Transactions\Cancel;
 use Concardis\Payengine\Lib\Internal\Resource\Orders\Transactions\Capture;
 use Concardis\Payengine\Lib\Internal\Resource\Orders\Transactions\Refund;
+use Concardis\Payengine\Lib\Models\Response\ListWrapper;
 use Concardis\Payengine\Lib\Models\Response\Orders\Transaction;
 
+/**
+ * Class Transactions
+ * @package Concardis\Payengine\Lib\Internal\Resource\Orders
+ */
 class Transactions extends AbstractResource implements Patchable, Getable
 {
-    protected $resourcePath = Api::RECOURCE_ORDERS_TRANSACTIONS;
+    protected string $resourcePath = Api::RESOURCE_ORDERS_TRANSACTIONS;
 
     /**
-     * @param $data
+     * @param array|AbstractModel $data
      *
      * @return Transaction
+     * @throws \Concardis\Payengine\Lib\Internal\Exception\PayengineResourceException
      */
-    public function patch($data)
+    public function patch(array|AbstractModel $data): Transaction
     {
         /**
          * @var $result Transaction
@@ -30,42 +38,49 @@ class Transactions extends AbstractResource implements Patchable, Getable
     }
 
     /**
-     * @param array $queryParams
+     * @param array|null $queryParams
      *
-     * @return \Concardis\Payengine\Lib\Models\Response\ListWrapper|Transaction 
-     * A list of Transactions if $queryParams provided or one Transaction 
+     * @return \Concardis\Payengine\Lib\Models\Response\ListWrapper|Transaction
+     * A list of Transactions if $queryParams provided or one Transaction
      * if called with ID set, if transactionId is set $queryParams will be ignored.
+     * @throws \Exception
      */
-    public function get($queryParams = null)
+    public function get(?array $queryParams = null): ListWrapper|Transaction
     {
         return parent::get($queryParams);
     }
 
     /**
      * @return Refund
+     * @throws \Exception
      */
-    public function refund(){
+    public function refund(): Refund
+    {
         return new Refund($this->connection, null, $this->resourcePathWithId);
     }
 
     /**
      * @return Capture
+     * @throws \Exception
      */
-    public function capture(){
+    public function capture(): Capture
+    {
         return new Capture($this->connection, null, $this->resourcePathWithId);
     }
 
     /**
      * @return Cancel
+     * @throws \Exception
      */
-    public function cancel(){
+    public function cancel(): Cancel
+    {
         return new Cancel($this->connection, null, $this->resourcePathWithId);
     }
 
     /**
      * @return Transaction
      */
-    protected function getResponseModel()
+    protected function getResponseModel(): Transaction
     {
         return new Transaction();
     }

@@ -1,4 +1,5 @@
-<?php
+<?php declare(strict_types=1);
+
 namespace Concardis\Payengine\Lib\Internal\AbstractClass;
 
 use Concardis\Payengine\Lib\Internal\Connection\Connection;
@@ -7,39 +8,50 @@ use Concardis\Payengine\Lib\Internal\Util\ArrayHelper;
 use Concardis\Payengine\Lib\Internal\Util\TypeHelper;
 use Concardis\Payengine\Lib\Models\Response\ListWrapper;
 
+/**
+ * Class AbstractResource
+ * @package Concardis\Payengine\Lib\Internal\AbstractClass
+ */
 abstract class AbstractResource
 {
     /**
      * @var string
      */
-    protected $resourcePath;
+    protected string $resourcePath;
 
     /**
      * @var string
      */
-    protected $resourcePathWithId;
+    protected string $resourcePathWithId;
 
     /**
      * @var string
      */
-    protected $resourceId;
+    protected string $resourceId;
 
     /**
      * @var Connection
      */
-    protected $connection;
+    protected Connection $connection;
 
+    /**
+     * AbstractResource constructor.
+     * @param Connection $connection
+     * @param null $resourceId
+     * @param null $parentResourcePath
+     * @throws \Exception
+     */
     function __construct(Connection $connection, $resourceId = null, $parentResourcePath = null)
     {
-        if($resourceId != null && !is_string($resourceId)) {
+        if ($resourceId != null && !is_string($resourceId)) {
             throw new \Exception(ErrorCodes::SDK_RESOURCEID_INVALID);
         }
 
-        if($parentResourcePath != null) {
+        if ($parentResourcePath != null) {
             $this->resourcePath = $parentResourcePath . $this->resourcePath;
         }
 
-        if($resourceId != null) {
+        if ($resourceId != null) {
             $this->resourceId = $resourceId;
             $this->resourcePathWithId = $this->resourcePath . "/" . $this->resourceId;
         }
@@ -48,13 +60,14 @@ abstract class AbstractResource
     }
 
     /**
-     * @param $data
+     * @param AbstractModel $data
      *
      * @return AbstractResponseModel
+     * @throws \Concardis\Payengine\Lib\Internal\Exception\PayengineResourceException
      */
-    protected function post($data)
+    protected function post(AbstractModel $data): AbstractResponseModel
     {
-        if($data instanceof AbstractModel) {
+        if ($data instanceof AbstractModel) {
             $data = $data->__toArray();
         }
 
@@ -63,13 +76,14 @@ abstract class AbstractResource
     }
 
     /**
-     * @param $data
+     * @param array|AbstractModel $data
      *
      * @return AbstractResponseModel
+     * @throws \Concardis\Payengine\Lib\Internal\Exception\PayengineResourceException
      */
-    protected function patch($data)
+    protected function patch(array|AbstractModel $data): AbstractResponseModel
     {
-        if($data instanceof AbstractModel) {
+        if ($data instanceof AbstractModel) {
             $data = $data->__toArray();
         }
 
@@ -79,29 +93,30 @@ abstract class AbstractResource
 
     /**
      * @return void
+     * @throws \Concardis\Payengine\Lib\Internal\Exception\PayengineResourceException
      */
-    protected function delete()
+    protected function delete(): mixed
     {
-        $this->connection->delete($this->resourcePathWithId);
+        return $this->connection->delete($this->resourcePathWithId);
     }
 
     /**
      * Returns an array of the Resource.
-     * If a resourceId is set only one result will be returned also $filter will 
+     * If a resourceId is set only one result will be returned also $filter will
      * be ignored.
      *
      * @param $filter
-     * @throws \Exception
      * @return ListWrapper|AbstractResponseModel
+     * @throws \Exception
      */
-    protected function get($filter = null)
+    protected function get($filter = null): ListWrapper|AbstractResponseModel
     {
-        if($filter != null && !ArrayHelper::isAssocArray($filter)) {
+        if ($filter != null && !ArrayHelper::isAssocArray($filter)) {
             throw new \Exception("Filter parameter is wrong");
         }
 
-        if($this->resourceId == null) {
-            if(is_array($filter)){
+        if ($this->resourceId == null) {
+            if (is_array($filter)) {
                 TypeHelper::convertBooleanValues($filter);
                 $result = $this->getAll($filter);
             } else {
@@ -119,13 +134,14 @@ abstract class AbstractResource
      * @return ListWrapper
      * @throws \Exception
      */
-    private function getAll($filter = array()){
+    private function getAll(array $filter = []): ListWrapper
+    {
         $result = $this->connection->get($this->resourcePath, $filter);
         $listWrapper = new ListWrapper();
 
-        $elementsAsModels = array();
-        if(is_array($result['elements']) && count($result['elements']) > 0 ) {
-            foreach($result['elements'] as $element) {
+        $elementsAsModels = [];
+        if (is_array($result['elements']) && count($result['elements']) > 0) {
+            foreach ($result['elements'] as $element) {
                 $elementsAsModels[] = $this->responseDataToModel($element);
             }
         }
@@ -137,18 +153,21 @@ abstract class AbstractResource
 
     /**
      * @return AbstractResponseModel
+     * @throws \Concardis\Payengine\Lib\Internal\Exception\PayengineResourceException
      */
-    private function getOne() {
+    private function getOne(): AbstractResponseModel
+    {
         $result = $this->connection->get($this->resourcePathWithId);
         return $this->responseDataToModel($result);
     }
 
     /**
-     * @param $response
+     * @param array $response
      *
      * @return AbstractResponseModel
      */
-    private function responseDataToModel(array $response) {
+    private function responseDataToModel(array $response): AbstractResponseModel
+    {
         $model = $this->getResponseModel();
         $model->__fromArray($response);
         return $model;
@@ -157,5 +176,5 @@ abstract class AbstractResource
     /**
      * @return AbstractResponseModel
      */
-    abstract protected function getResponseModel();
+    abstract protected function getResponseModel(): AbstractResponseModel;
 }

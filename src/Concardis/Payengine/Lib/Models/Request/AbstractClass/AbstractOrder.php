@@ -1,93 +1,97 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Concardis\Payengine\Lib\Models\Request\AbstractClass;
 
-
 use Concardis\Payengine\Lib\Internal\AbstractClass\AbstractModel;
 use Concardis\Payengine\Lib\Internal\Util\DateTimeHelper;
+use DateTime;
 
+/**
+ * Class AbstractOrder
+ * @package Concardis\Payengine\Lib\Models\Request\AbstractClass
+ */
 class AbstractOrder extends AbstractModel
 {
 
     /**
-     * @var integer
+     * @var int
      */
-    protected $terms;
+    protected int $terms;
 
     /**
      * @var integer
      */
-    protected $privacy;
+    protected int $privacy;
 
     /**
      * @var string
      */
-    protected $merchantOrderId;
+    protected string $merchantOrderId;
 
     /**
      * @var string
      */
-    protected $description;
+    protected string $description;
 
     /**
      * @var string
      */
-    protected $statementDescription;
+    protected string $statementDescription;
 
     /**
      * @var integer
      */
-    protected $initialAmount;
+    protected int $initialAmount;
 
     /**
      * @var string
      */
-    protected $currency;
+    protected string $currency;
 
     /**
      * @var array
      */
-    protected $basket;
+    protected array $basket;
 
     /**
      * @var string
      */
-    protected $customer;
+    protected string $customer;
 
     /**
      * @var string
      */
-    protected $persona;
+    protected string $persona;
 
     /**
      * @var string
      */
-    protected $billingAddress;
+    protected string $billingAddress;
 
     /**
      * @var string
      */
-    protected $shippingAddress;
+    protected string $shippingAddress;
 
     /**
      * @var string
      */
-    protected $ipAddress;
+    protected string $ipAddress;
 
     /**
      * @var string
      */
-    protected $channel;
+    protected string $channel;
 
     /**
      * @var string
      */
-    protected $source;
+    protected string $source;
 
     /**
-     * @return mixed
+     * @return int
      */
-    public function getTerms()
+    public function getTerms(): int
     {
         return $this->terms;
     }
@@ -98,9 +102,10 @@ class AbstractOrder extends AbstractModel
      *
      * Unless it is DateTime, it has to be a valid Timestamp
      *
-     * @param mixed $terms
+     * @param float|int|string|DateTime $terms
+     * @throws \Exception
      */
-    public function setTerms($terms)
+    public function setTerms(float|int|string|DateTime $terms)
     {
         $dateTime = DateTimeHelper::convertNumericToDateTime($terms);
 
@@ -108,9 +113,9 @@ class AbstractOrder extends AbstractModel
     }
 
     /**
-     * @return mixed
+     * @return int
      */
-    public function getPrivacy()
+    public function getPrivacy(): int
     {
         return $this->privacy;
     }
@@ -120,9 +125,10 @@ class AbstractOrder extends AbstractModel
      * DateTime, integer, float, string
      *
      * Unless it is DateTime, it has to be a valid Timestamp
-     * @param mixed $privacy
+     * @param float|int|string|DateTime $privacy
+     * @throws \Exception
      */
-    public function setPrivacy($privacy)
+    public function setPrivacy(float|int|string|DateTime $privacy)
     {
         $dateTime = DateTimeHelper::convertNumericToDateTime($privacy);
 
@@ -132,209 +138,235 @@ class AbstractOrder extends AbstractModel
     /**
      * @return string
      */
-    public function getMerchantOrderId()
+    public function getMerchantOrderId(): string
     {
         return $this->merchantOrderId;
     }
 
     /**
      * @param string $merchantOrderId
+     * @return AbstractOrder
      */
-    public function setMerchantOrderId($merchantOrderId)
+    public function setMerchantOrderId(string $merchantOrderId): self
     {
         $this->merchantOrderId = $merchantOrderId;
+        return $this;
     }
 
     /**
      * @return string
      */
-    public function getDescription()
+    public function getDescription(): string
     {
         return $this->description;
     }
 
     /**
      * @param string $description
+     * @return AbstractOrder
      */
-    public function setDescription($description)
+    public function setDescription(string $description): self
     {
         $this->description = $description;
+        return $this;
     }
 
     /**
      * @return string
      */
-    public function getStatementDescription()
+    public function getStatementDescription(): string
     {
         return $this->statementDescription;
     }
 
     /**
      * @param string $statementDescription
+     * @return AbstractOrder
      */
-    public function setStatementDescription($statementDescription)
+    public function setStatementDescription(string $statementDescription): self
     {
         $this->statementDescription = $statementDescription;
+        return $this;
     }
 
     /**
      * @return int
      */
-    public function getInitialAmount()
+    public function getInitialAmount(): int
     {
         return $this->initialAmount;
     }
 
     /**
      * @param int $initialAmount
+     * @return AbstractOrder
      */
-    public function setInitialAmount($initialAmount)
+    public function setInitialAmount(int $initialAmount): self
     {
         $this->initialAmount = $initialAmount;
+        return $this;
     }
 
     /**
      * @return string
      */
-    public function getCurrency()
+    public function getCurrency(): string
     {
         return $this->currency;
     }
 
     /**
      * @param string $currency
+     * @return AbstractOrder
      */
-    public function setCurrency($currency)
+    public function setCurrency(string $currency): self
     {
         $this->currency = $currency;
+        return $this;
     }
 
     /**
      * @return array
      */
-    public function getBasket()
+    public function getBasket(): array
     {
         return $this->basket;
     }
 
     /**
      * @param array $basket
+     * @return AbstractOrder
      */
-    public function setBasket($basket)
+    public function setBasket(array $basket): self
     {
         $this->basket = $basket;
+        return $this;
     }
 
     /**
      * @return string
      */
-    public function getCustomer()
+    public function getCustomer(): string
     {
         return $this->customer;
     }
 
     /**
      * @param string $customer
+     * @return AbstractOrder
      */
-    public function setCustomer($customer)
+    public function setCustomer(string $customer): self
     {
         $this->customer = $customer;
+        return $this;
     }
 
     /**
      * @return string
      */
-    public function getPersona()
+    public function getPersona(): string
     {
         return $this->persona;
     }
 
     /**
      * @param string $persona
+     * @return AbstractOrder
      */
-    public function setPersona($persona)
+    public function setPersona(string $persona): self
     {
         $this->persona = $persona;
+        return $this;
     }
 
     /**
      * @return string
      */
-    public function getBillingAddress()
+    public function getBillingAddress(): string
     {
         return $this->billingAddress;
     }
 
     /**
      * @param string $billingAddress
+     * @return AbstractOrder
      */
-    public function setBillingAddress($billingAddress)
+    public function setBillingAddress(string $billingAddress): self
     {
         $this->billingAddress = $billingAddress;
+        return $this;
     }
 
     /**
      * @return string
      */
-    public function getShippingAddress()
+    public function getShippingAddress(): string
     {
         return $this->shippingAddress;
     }
 
     /**
      * @param string $shippingAddress
+     * @return AbstractOrder
      */
-    public function setShippingAddress($shippingAddress)
+    public function setShippingAddress(string $shippingAddress): self
     {
         $this->shippingAddress = $shippingAddress;
+        return $this;
     }
 
     /**
      * @return string
      */
-    public function getIpAddress()
+    public function getIpAddress(): string
     {
         return $this->ipAddress;
     }
 
     /**
      * @param string $ipAddress
+     * @return AbstractOrder
      */
-    public function setIpAddress($ipAddress)
+    public function setIpAddress(string $ipAddress): self
     {
         $this->ipAddress = $ipAddress;
+        return $this;
     }
 
     /**
      * @return string
      */
-    public function getChannel()
+    public function getChannel(): string
     {
         return $this->channel;
     }
 
     /**
      * @param string $channel
+     * @return AbstractOrder
      */
-    public function setChannel($channel)
+    public function setChannel(string $channel): self
     {
         $this->channel = $channel;
+        return $this;
     }
 
     /**
      * @return string
      */
-    public function getSource()
+    public function getSource(): string
     {
         return $this->source;
     }
 
     /**
      * @param string $source
+     * @return AbstractOrder
      */
-    public function setSource($source)
+    public function setSource(string $source): self
     {
         $this->source = $source;
+        return $this;
     }
 
 }

@@ -1,24 +1,24 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Concardis\Payengine\Lib\Internal\Util;
 
-
+/**
+ * Class TypeHelper
+ * @package Concardis\Payengine\Lib\Internal\Util
+ */
 class TypeHelper
 {
 
     /**
      * convert boolean to string values to avoid booleans to be send as integers within the queryString.
      *
-     * @param $filter
+     * @param array $filter
      */
-    public static function convertBooleanValues(array &$filter){
+    public static function convertBooleanValues(array &$filter): void
+    {
         foreach ($filter as $parameterName => $value){
             //convert boolean to string values to avoid booleans to be send as integers within the queryString.
-            if($value === true){
-                $filter[$parameterName] = 'true';
-            }elseif ($value === false){
-                $filter[$parameterName] = 'false';
-            }
+            $filter[$parameterName] = var_export($value, true);
         }
     }
 

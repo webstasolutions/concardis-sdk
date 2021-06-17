@@ -1,21 +1,28 @@
-<?php
+<?php declare(strict_types=1);
+
 namespace Concardis\Payengine\Lib\Internal\Resource\Orders;
 
+use Concardis\Payengine\Lib\Internal\AbstractClass\AbstractModel;
 use Concardis\Payengine\Lib\Internal\AbstractClass\AbstractResource;
 use Concardis\Payengine\Lib\Internal\Constants\Api;
 use Concardis\Payengine\Lib\Internal\Interfaces\Postable;
 use Concardis\Payengine\Lib\Models\Response\Order;
 
+/**
+ * Class Preauth
+ * @package Concardis\Payengine\Lib\Internal\Resource\Orders
+ */
 class Preauth extends AbstractResource implements Postable
 {
-    protected $resourcePath = Api::RECOURCE_ORDERS_PREAUTH;
+    protected string $resourcePath = Api::RESOURCE_ORDERS_PREAUTH;
 
     /**
-     * @param $data
+     * @param array|AbstractModel $data
      *
      * @return Order
+     * @throws \Concardis\Payengine\Lib\Internal\Exception\PayengineResourceException
      */
-    public function post($data)
+    public function post(array|AbstractModel $data): Order
     {
         /**
          * @var $result Order
@@ -28,7 +35,7 @@ class Preauth extends AbstractResource implements Postable
     /**
      * @return Order
      */
-    protected function getResponseModel()
+    protected function getResponseModel(): Order
     {
         return new Order();
     }

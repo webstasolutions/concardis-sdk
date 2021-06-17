@@ -1,10 +1,13 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Concardis\Payengine\Lib\Models\Response\Orders;
 
-
 use Concardis\Payengine\Lib\Internal\AbstractClass\AbstractResponseModel;
 
+/**
+ * Class Meta
+ * @package Concardis\Payengine\Lib\Models\Response\Orders
+ */
 class Meta extends AbstractResponseModel
 {
 
@@ -12,176 +15,191 @@ class Meta extends AbstractResponseModel
      * @var string
      * relevant for RatePAY
      */
-    private $riskIdentId;
+    private string $riskIdentId;
 
     /**
      * @var integer
      * relevant for RatePAY Installment
      */
-    private $totalAmount;
+    private int $totalAmount;
 
     /**
      * @var integer
      * relevant for RatePAY Installment
      */
-    private $numberOfRates;
+    private int $numberOfRates;
 
     /**
      * @var integer
      * relevant for RatePAY Installment
      */
-    private $rate;
+    private int $rate;
 
     /**
      * @var integer
      * relevant for RatePAY Installment
      */
-    private $lastRate;
+    private int $lastRate;
 
     /**
      * @var float
      * relevant for RatePAY Installment
      */
-    private $interestRate;
+    private float $interestRate;
 
     /**
      * @var integer
      * relevant for RatePAY Installment
      */
-    private $paymentFirstDay;
+    private int $paymentFirstDay;
 
     /**
      * @var string
      * relevant for RatePAY Installment
      */
-    private $descriptor;
+    private string $descriptor;
 
     /**
      * @return string
      */
-    public function getRiskIdentId()
+    public function getRiskIdentId(): string
     {
         return $this->riskIdentId;
     }
 
     /**
      * @param string $riskIdentId
+     * @return Meta
      */
-    public function setRiskIdentId($riskIdentId)
+    public function setRiskIdentId(string $riskIdentId): self
     {
         $this->riskIdentId = $riskIdentId;
+        return $this;
     }
 
     /**
      * @return int
      */
-    public function getTotalAmount()
+    public function getTotalAmount(): int
     {
         return $this->totalAmount;
     }
 
     /**
      * @param int $totalAmount
+     * @return Meta
      */
-    public function setTotalAmount($totalAmount)
+    public function setTotalAmount(int $totalAmount): self
     {
         $this->totalAmount = $totalAmount;
+        return $this;
     }
 
     /**
      * @return int
      */
-    public function getNumberOfRates()
+    public function getNumberOfRates(): int
     {
         return $this->numberOfRates;
     }
 
     /**
      * @param int $numberOfRates
+     * @return Meta
      */
-    public function setNumberOfRates($numberOfRates)
+    public function setNumberOfRates(int $numberOfRates): self
     {
         $this->numberOfRates = $numberOfRates;
+        return $this;
     }
 
     /**
      * @return int
      */
-    public function getRate()
+    public function getRate(): int
     {
         return $this->rate;
     }
 
     /**
      * @param int $rate
+     * @return Meta
      */
-    public function setRate($rate)
+    public function setRate(int $rate): self
     {
         $this->rate = $rate;
+        return $this;
     }
 
     /**
      * @return int
      */
-    public function getLastRate()
+    public function getLastRate(): int
     {
         return $this->lastRate;
     }
 
     /**
      * @param int $lastRate
+     * @return Meta
      */
-    public function setLastRate($lastRate)
+    public function setLastRate(int $lastRate): self
     {
         $this->lastRate = $lastRate;
+        return $this;
     }
 
     /**
      * @return float
      */
-    public function getInterestRate()
+    public function getInterestRate(): float
     {
         return $this->interestRate;
     }
 
     /**
      * @param float $interestRate
+     * @return Meta
      */
-    public function setInterestRate($interestRate)
+    public function setInterestRate(float $interestRate): self
     {
         $this->interestRate = $interestRate;
+        return $this;
     }
 
     /**
      * @return int
      */
-    public function getPaymentFirstDay()
+    public function getPaymentFirstDay(): int
     {
         return $this->paymentFirstDay;
     }
 
     /**
      * @param int $paymentFirstDay
+     * @return Meta
      */
-    public function setPaymentFirstDay($paymentFirstDay)
+    public function setPaymentFirstDay(int $paymentFirstDay): self
     {
         $this->paymentFirstDay = $paymentFirstDay;
+        return $this;
     }
 
     /**
      * @return string
      */
-    public function getDescriptor()
+    public function getDescriptor(): string
     {
         return $this->descriptor;
     }
 
     /**
      * @param string $descriptor
+     * @return Meta
      */
-    public function setDescriptor($descriptor)
+    public function setDescriptor(string $descriptor): self
     {
         $this->descriptor = $descriptor;
+        return $this;
     }
-
 }

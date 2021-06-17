@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Concardis\Payengine\Lib\Test\Internal\Resource;
 
@@ -24,9 +24,10 @@ class OrdersTest extends TestCase
     /**
      * @var PayEngine
      */
-    private $payengine;
+    private PayEngine $payengine;
 
-    public function setup(){
+    public function setUp(): void
+    {
         $this->payengine = new PayEngine(new MerchantConfiguration());
         $this->payengine->setConnection($this->getConnectionMock());
     }
@@ -53,7 +54,7 @@ class OrdersTest extends TestCase
      * @test
      */
     public function postTest(){
-        $result = $this->payengine->orders()->post(array());
+        $result = $this->payengine->orders()->post([]);
         $this->assertEquals(OrderFixture::getResponse(), $result);
     }
 
@@ -61,7 +62,7 @@ class OrdersTest extends TestCase
      * @test
      */
     public function patchTest(){
-        $result = $this->payengine->orders()->patch(array());
+        $result = $this->payengine->orders()->patch([]);
         $this->assertEquals(OrderFixture::getResponse(), $result);
     }
 

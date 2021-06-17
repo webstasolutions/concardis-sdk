@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Concardis\Payengine\Lib\Test\Internal\Resource\Orders;
 
@@ -21,11 +21,12 @@ class TransactionsTest extends TestCase
     /**
      * @var PayEngine
      */
-    private $payengine;
+    private PayEngine $payEngine;
 
-    public function setup(){
-        $this->payengine = new PayEngine(new MerchantConfiguration());
-        $this->payengine->setConnection($this->getConnectionMock());
+    public function setUp(): void
+    {
+        $this->payEngine = new PayEngine(new MerchantConfiguration());
+        $this->payEngine->setConnection($this->getConnectionMock());
     }
 
     /**
@@ -44,7 +45,7 @@ class TransactionsTest extends TestCase
      * @test
      */
     public function patchTest(){
-        $result = $this->payengine->orders('test123')->transactions()->patch(array());
+        $result = $this->payEngine->orders('test123')->transactions()->patch([]);
         $this->assertEquals(TransactionFixture::getResponseParent(), $result);
     }
 
@@ -57,10 +58,10 @@ class TransactionsTest extends TestCase
             ->with('/orders/test123/transactions/test123')
             ->will($this->returnValue(TransactionFixture::getResponseParent()->__toArray()
             ));
-        $this->payengine->setConnection($mock);
+        $this->payEngine->setConnection($mock);
 
 
-        $result = $this->payengine->orders('test123')->transactions('test123')->get();
+        $result = $this->payEngine->orders('test123')->transactions('test123')->get();
 
         $this->assertInstanceOf('\Concardis\Payengine\Lib\Models\Response\Orders\Transaction', $result);
         $this->assertEquals(TransactionFixture::getResponseParent(), $result);
@@ -82,10 +83,10 @@ class TransactionsTest extends TestCase
                     )
                 )
             ));
-        $this->payengine->setConnection($mock);
+        $this->payEngine->setConnection($mock);
 
 
-        $result = $this->payengine->orders('test123')->transactions()->get();
+        $result = $this->payEngine->orders('test123')->transactions()->get();
         $this->assertTrue(is_a($result, ListWrapper::class));
         $this->assertEquals(2, $result->getTotalPages());
         $this->assertEquals(2, count($result->getElements()));

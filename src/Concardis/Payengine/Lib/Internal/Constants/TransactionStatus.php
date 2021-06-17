@@ -1,17 +1,20 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Concardis\Payengine\Lib\Internal\Constants;
 
-
+/**
+ * Class TransactionStatus
+ * @package Concardis\Payengine\Lib\Internal\Constants
+ */
 class TransactionStatus
 {
-    const CREATED = "CREATED";
-    const PENDING = "PENDING";
-    const IN_PROGRESS = "IN_PROGRESS";
-    const OK = "OK";
-    const SUCCESS = "SUCCESS";
-    const FAILURE = "FAILURE";
-    const DECLINED = "DECLINED";
-    const ABORTED = "ABORTED";
-    const EXPIRED = "EXPIRED";
+    public const CREATED = "CREATED";
+    public const PENDING = "PENDING";
+    public const IN_PROGRESS = "IN_PROGRESS";
+    public const OK = "OK";
+    public const SUCCESS = "SUCCESS";
+    public const FAILURE = "FAILURE";
+    public const DECLINED = "DECLINED";
+    public const ABORTED = "ABORTED";
+    public const EXPIRED = "EXPIRED";
 }

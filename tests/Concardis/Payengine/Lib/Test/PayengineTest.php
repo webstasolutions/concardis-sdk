@@ -71,7 +71,7 @@ class PayengineTest extends TestCase
     public function getResourcePaymentInstruments_should_succeed(){
         $config = new MerchantConfiguration();
         $payEngine = new PayEngine($config);
-        $this->assertTrue(is_a($payEngine->paymentinstruments(), PaymentInstruments::class));
+        $this->assertTrue(is_a($payEngine->paymentInstruments(), PaymentInstruments::class));
     }
 
 

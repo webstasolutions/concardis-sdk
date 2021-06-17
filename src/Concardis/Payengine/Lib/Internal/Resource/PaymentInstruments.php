@@ -1,23 +1,35 @@
-<?php
+<?php declare(strict_types=1);
+
 namespace Concardis\Payengine\Lib\Internal\Resource;
 
+use Concardis\Payengine\Lib\Internal\AbstractClass\AbstractModel;
 use Concardis\Payengine\Lib\Internal\AbstractClass\AbstractResource;
+use Concardis\Payengine\Lib\Internal\AbstractClass\AbstractResponseModel;
 use Concardis\Payengine\Lib\Internal\Constants\Api;
 use Concardis\Payengine\Lib\Internal\Interfaces\Getable;
 use Concardis\Payengine\Lib\Internal\Interfaces\Patchable;
 use Concardis\Payengine\Lib\Internal\Interfaces\Postable;
+use Concardis\Payengine\Lib\Models\Response\ListWrapper;
 use Concardis\Payengine\Lib\Models\Response\PaymentInstrument;
 
+/**
+ * Class PaymentInstruments
+ * @package Concardis\Payengine\Lib\Internal\Resource
+ */
 class PaymentInstruments extends AbstractResource implements Postable, Getable, Patchable
 {
-    protected $resourcePath = Api::RESOURCE_PAYMENTINSTRUMENT;
+    /**
+     * @var string
+     */
+    protected string $resourcePath = Api::RESOURCE_PAYMENTINSTRUMENT;
 
     /**
-     * @param $data
+     * @param array|AbstractModel $data
      *
      * @return PaymentInstrument
+     * @throws \Concardis\Payengine\Lib\Internal\Exception\PayengineResourceException
      */
-    public function post($data)
+    public function post(array|AbstractModel $data): PaymentInstrument
     {
         /**
          * @var $result PaymentInstrument
@@ -28,11 +40,12 @@ class PaymentInstruments extends AbstractResource implements Postable, Getable, 
     }
 
     /**
-     * @param $data
+     * @param array|AbstractModel $data
      *
      * @return PaymentInstrument
+     * @throws \Concardis\Payengine\Lib\Internal\Exception\PayengineResourceException
      */
-    public function patch($data)
+    public function patch(array|AbstractModel $data): PaymentInstrument
     {
         /**
          * @var $result PaymentInstrument
@@ -43,13 +56,14 @@ class PaymentInstruments extends AbstractResource implements Postable, Getable, 
     }
 
     /**
-     * @param array $queryParams
+     * @param null $queryParams
      *
-     * @return \Concardis\Payengine\Lib\Models\Response\ListWrapper|PaymentInstrument 
-     * A list of PaymentInstrument if $queryParams provided or one PaymentInstrument 
+     * @return \Concardis\Payengine\Lib\Models\Response\ListWrapper|PaymentInstrument
+     * A list of PaymentInstrument if $queryParams provided or one PaymentInstrument
      * if called with ID set, if paymentInstrumentId is set $queryParams will be ignored.
+     * @throws \Exception
      */
-    public function get($queryParams = null)
+    public function get($queryParams = null): ListWrapper|AbstractResponseModel
     {
         return parent::get($queryParams);
     }
@@ -57,7 +71,7 @@ class PaymentInstruments extends AbstractResource implements Postable, Getable, 
     /**
      * @return PaymentInstrument
      */
-    protected function getResponseModel()
+    protected function getResponseModel(): PaymentInstrument
     {
         return new PaymentInstrument();
     }

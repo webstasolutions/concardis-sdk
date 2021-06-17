@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Concardis\Payengine\Lib\Test\Internal\AbstractClass;
 
@@ -19,10 +19,11 @@ class AbstractResourceTest extends TestCase
     /**
      * @var PayEngine
      */
-    private $payengine;
+    private PayEngine $payEngine;
 
-    public function setup(){
-        $this->payengine = new PayEngine(new MerchantConfiguration());
+    public function setUp(): void
+    {
+        $this->payEngine = new PayEngine(new MerchantConfiguration());
     }
 
     /**
@@ -30,7 +31,7 @@ class AbstractResourceTest extends TestCase
      * @expectedException \Exception
      */
     public function emptyFilterArrayTest_should_fail(){
-        $this->payengine->paymentinstruments()->get(array());
+        $this->payEngine->paymentInstruments()->get([]);
     }
 
     /**
@@ -38,7 +39,7 @@ class AbstractResourceTest extends TestCase
      * @expectedException \Exception
      */
     public function invalidResourceId_should_fail(){
-        $this->payengine->paymentinstruments(1);
+        $this->payEngine->paymentInstruments(1);
     }
 
     /**
@@ -46,7 +47,7 @@ class AbstractResourceTest extends TestCase
      * @expectedException \Exception
      */
     public function numericFilterArrayTest_should_fail(){
-        $this->payengine->paymentinstruments()->get(array('test'));
+        $this->payEngine->paymentInstruments()->get(['test']);
     }
 
 }

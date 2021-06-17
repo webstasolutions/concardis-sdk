@@ -1,6 +1,11 @@
-<?php
+<?php declare(strict_types=1);
+
 namespace Concardis\Payengine\Lib\Internal\Exception;
 
+/**
+ * Class PayengineResourceException
+ * @package Concardis\Payengine\Lib\Internal\Exception
+ */
 class PayengineResourceException extends \Exception
 {
     /**
@@ -8,42 +13,43 @@ class PayengineResourceException extends \Exception
      *
      * @var string
      */
-    protected $resourceEndpoint;
+    protected string $resourceEndpoint;
 
     /**
      * Payload of the request (request body)
      *
      * @var string
      */
-    protected $payload;
+    protected string $payload;
 
     /**
      * Request headers
      *
      * @var array
      */
-    protected $requestHeaders;
+    protected array $requestHeaders;
 
     /**
      * Body of the API response
      *
      * @var string
      */
-    protected $responseBody;
+    protected string $responseBody;
 
     /**
      * Header of the API response
      *
      * @var array
      */
-    protected $responseHeader;
+    protected array $responseHeader;
 
     /**
      * Get resource endpoint of the request
      *
      * @return string
      */
-    public function getResourceEndpoint() {
+    public function getResourceEndpoint(): string
+    {
         return $this->resourceEndpoint;
     }
 
@@ -51,10 +57,12 @@ class PayengineResourceException extends \Exception
      * Set resource endpoint of the request
      *
      * @param string $resourceEndpoint
-     * @return void
+     * @return PayengineResourceException
      */
-    public function setResourceEndpoint($resourceEndpoint) {
+    public function setResourceEndpoint(string $resourceEndpoint): self
+    {
         $this->resourceEndpoint = $resourceEndpoint;
+        return $this;
     }
 
     /**
@@ -62,7 +70,8 @@ class PayengineResourceException extends \Exception
      *
      * @return string
      */
-    public function getPayload() {
+    public function getPayload(): string
+    {
         return $this->payload;
     }
 
@@ -70,10 +79,12 @@ class PayengineResourceException extends \Exception
      * Set payload of the request (request body)
      *
      * @param string $payload
-     * @return void
+     * @return PayengineResourceException
      */
-    public function setPayload($payload) {
+    public function setPayload(string $payload): self
+    {
         $this->payload = $payload;
+        return $this;
     }
 
     /**
@@ -81,7 +92,8 @@ class PayengineResourceException extends \Exception
      *
      * @return array
      */
-    public function getRequestHeaders() {
+    public function getRequestHeaders(): array
+    {
         return $this->requestHeaders;
     }
 
@@ -89,10 +101,12 @@ class PayengineResourceException extends \Exception
      * Set request headers
      *
      * @param array $requestHeaders
-     * @return void
+     * @return PayengineResourceException
      */
-    public function setRequestHeaders($requestHeaders) {
+    public function setRequestHeaders(array $requestHeaders): self
+    {
         $this->requestHeaders = $requestHeaders;
+        return $this;
     }
 
     /**
@@ -100,7 +114,8 @@ class PayengineResourceException extends \Exception
      *
      * @return string
      */
-    public function getResponseBody() {
+    public function getResponseBody(): string
+    {
         return $this->responseBody;
     }
 
@@ -108,10 +123,12 @@ class PayengineResourceException extends \Exception
      * Set body of the API response
      *
      * @param string $responseBody
-     * @return void
+     * @return PayengineResourceException
      */
-    public function setResponseBody($responseBody) {
+    public function setResponseBody(string $responseBody): self
+    {
         $this->responseBody = $responseBody;
+        return $this;
     }
 
     /**
@@ -119,7 +136,8 @@ class PayengineResourceException extends \Exception
      *
      * @return array
      */
-    public function getResponseHeader() {
+    public function getResponseHeader(): array
+    {
         return $this->responseHeader;
     }
 
@@ -127,9 +145,11 @@ class PayengineResourceException extends \Exception
      * Set header of the API response
      *
      * @param array $responseHeader
-     * @return void
+     * @return PayengineResourceException
      */
-    public function setResponseHeader($responseHeader) {
+    public function setResponseHeader(array $responseHeader): self
+    {
         $this->responseHeader = $responseHeader;
+        return $this;
     }
 }

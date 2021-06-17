@@ -49,7 +49,7 @@ class PaymentInstrumentsTest extends TestCase
      * @test
      */
     public function postTest(){
-        $result = $this->payengine->paymentinstruments()->post(array());
+        $result = $this->payengine->paymentInstruments()->post(array());
         $this->assertEquals(PaymentInstrumentFixture::getResponse(), $result);
     }
 
@@ -57,7 +57,7 @@ class PaymentInstrumentsTest extends TestCase
      * @test
      */
     public function patchTest(){
-        $result = $this->payengine->paymentinstruments()->patch(array());
+        $result = $this->payengine->paymentInstruments()->patch(array());
         $this->assertEquals(PaymentInstrumentFixture::getResponse(), $result);
     }
 
@@ -65,7 +65,7 @@ class PaymentInstrumentsTest extends TestCase
      * @test
      */
     public function patchTest_WithModel(){
-        $result = $this->payengine->paymentinstruments()->patch(new PaymentInstrument());
+        $result = $this->payengine->paymentInstruments()->patch(new PaymentInstrument());
         $this->assertEquals(PaymentInstrumentFixture::getResponse(), $result);
     }
 
@@ -81,7 +81,7 @@ class PaymentInstrumentsTest extends TestCase
         $this->payengine->setConnection($mock);
 
 
-        $result = $this->payengine->paymentinstruments('test_123')->get();
+        $result = $this->payengine->paymentInstruments('test_123')->get();
         
         $this->assertInstanceOf('\Concardis\Payengine\Lib\Models\Response\PaymentInstrument', $result);
         $this->assertEquals(PaymentInstrumentFixture::getResponse(), $result);
@@ -105,7 +105,7 @@ class PaymentInstrumentsTest extends TestCase
             ));
         $this->payengine->setConnection($mock);
 
-        $result = $this->payengine->paymentinstruments()->get();
+        $result = $this->payengine->paymentInstruments()->get();
         $this->assertTrue(is_a($result, ListWrapper::class));
         $this->assertEquals(2, $result->getTotalPages());
         $this->assertEquals(2, count($result->getElements()));

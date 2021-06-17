@@ -1,8 +1,13 @@
-<?php
+<?php declare(strict_types=1);
+
 namespace Concardis\Payengine\Lib\Models\Request\Orders;
 
 use Concardis\Payengine\Lib\Internal\AbstractClass\AbstractModel;
 
+/**
+ * Class Mandate
+ * @package Concardis\Payengine\Lib\Models\Request\Orders
+ */
 class Mandate extends AbstractModel
 {
     /**
@@ -10,28 +15,29 @@ class Mandate extends AbstractModel
      *
      * @var string
      */
-    private $mandateId;
+    private string $mandateId;
 
     /**
      * Date/Time of mandate creation
      *
      * @var string
      */
-    private $createdDateTime;
+    private string $createdDateTime;
 
     /**
      * Mandate text
      *
      * @var string
      */
-    private $mandateText;
+    private string $mandateText;
 
     /**
      * Get mandate id
      *
      * @return string
      */
-    public function getMandateId() {
+    public function getMandateId(): string
+    {
         return $this->mandateId;
     }
 
@@ -39,10 +45,12 @@ class Mandate extends AbstractModel
      * Set mandate id
      *
      * @param string $mandateId
-     * @return void
+     * @return Mandate
      */
-    public function setMandateId($mandateId) {
+    public function setMandateId(string $mandateId): self
+    {
         $this->mandateId = $mandateId;
+        return $this;
     }
 
     /**
@@ -50,7 +58,8 @@ class Mandate extends AbstractModel
      *
      * @return string
      */
-    public function getCreatedDateTime() {
+    public function getCreatedDateTime(): string
+    {
         return $this->createdDateTime;
     }
 
@@ -58,10 +67,12 @@ class Mandate extends AbstractModel
      * Set date/time of mandate creation
      *
      * @param string $createdDateTime
-     * @return void
+     * @return Mandate
      */
-    public function setCreatedDateTime($createdDateTime) {
+    public function setCreatedDateTime(string $createdDateTime): self
+    {
         $this->createdDateTime = $createdDateTime;
+        return $this;
     }
 
     /**
@@ -69,7 +80,8 @@ class Mandate extends AbstractModel
      *
      * @return string
      */
-    public function getMandateText() {
+    public function getMandateText(): string
+    {
         return $this->mandateText;
     }
 
@@ -77,9 +89,11 @@ class Mandate extends AbstractModel
      * Set mandate text
      *
      * @param string $mandateText
-     * @return void
+     * @return Mandate
      */
-    public function setMandateText($mandateText) {
+    public function setMandateText(string $mandateText): self
+    {
         $this->mandateText = $mandateText;
+        return $this;
     }
 }

@@ -13,7 +13,7 @@ use Concardis\Payengine\Lib\Models\Response\Orders\Meta;
 class Order extends AbstractResponseModel
 {
 
-    protected $subModels = array(
+    protected array $subModels = array(
         'basket' => Item::class,
         'customer' => Customer::class,
         'persona' => Persona::class,

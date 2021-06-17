@@ -10,7 +10,7 @@ class Customer extends AbstractResponseModel
     /**
      * @var array
      */
-    protected $subModels = array(
+    protected array $subModels = array(
         'addresses' => Address::class,
         'personas' => Persona::class,
         'paymentInstruments' => PaymentInstrument::class
