@@ -17,9 +17,9 @@ class PaymentInstrument extends AbstractResponseModel
     private string $paymentInstrumentId;
 
     /**
-     * @var  string
+     * @var string|null
      */
-    private string $merchantPaymentInstrumentId;
+    private ?string $merchantPaymentInstrumentId;
 
     /**
      * @var string
@@ -73,10 +73,10 @@ class PaymentInstrument extends AbstractResponseModel
     }
 
     /**
-     * @param string $merchantPaymentInstrumentId
+     * @param string|null $merchantPaymentInstrumentId
      * @return PaymentInstrument
      */
-    public function setMerchantPaymentInstrumentId(string $merchantPaymentInstrumentId): self
+    public function setMerchantPaymentInstrumentId(?string $merchantPaymentInstrumentId): self
     {
         $this->merchantPaymentInstrumentId = $merchantPaymentInstrumentId;
         return $this;

@@ -151,12 +151,13 @@ var_dump($payload);
         if (count($queryParams) > 0) {
             $url .= '?' . http_build_query($queryParams);
         }
-        $this->checkSuccess($url);
 
         $url = preg_replace('/(%5B[0-9]%5D)/', '', $url);
 
         $this->setDefaultHeader();
         $this->curl->get($url, []);
+
+        $this->checkSuccess($url);
 
         return json_decode($this->curl->response, true);
     }
@@ -170,9 +171,8 @@ var_dump($payload);
     private function checkSuccess(string $url, ?string $payload = null): bool
     {
         if (!$this->curl->isSuccess()) {
-var_dump($this->curl->response);
             $requestException = new PayEngineResourceException(
-                $this->curl->error_message,
+                $this->curl->error_message ?? '',
                 $this->curl->http_status_code
             );
 
@@ -181,7 +181,7 @@ var_dump($this->curl->response);
             }
 
             $requestException->setResourceEndpoint($url);
-            $requestException->setRequestHeaders($this->curl->request_headers);
+            $requestException->setRequestHeaders($this->curl->request_headers ?? []);
             $requestException->setResponseHeader($this->curl->response_headers);
             if (is_string($this->curl->response)) {
                 $requestException->setResponseBody($this->curl->response);

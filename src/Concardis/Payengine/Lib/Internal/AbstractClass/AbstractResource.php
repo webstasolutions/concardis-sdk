@@ -25,9 +25,9 @@ abstract class AbstractResource
     protected string $resourcePathWithId;
 
     /**
-     * @var string
+     * @var string|null
      */
-    protected string $resourceId;
+    protected ?string $resourceId = null;
 
     /**
      * @var Connection
