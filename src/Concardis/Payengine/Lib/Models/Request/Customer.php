@@ -14,13 +14,13 @@ class Customer extends AbstractModel
      * Email of the customer
      * @var string
      */
-    private string $email;
+    private string $email = '';
 
     /**
      * Id for this customer on your System
      * @var string
      */
-    private string $merchantCustomerId;
+    private string $merchantCustomerId = '';
 
     /**
      * @return string

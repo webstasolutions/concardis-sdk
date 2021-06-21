@@ -41,8 +41,16 @@ abstract class AbstractModel
     {
         $result = [];
         $reflection = new \ReflectionClass($this);
-        $properties = $reflection->getDefaultProperties();
-        foreach ($properties as $propertyName => $propertyValue) {
+        $defaultProperties = $reflection->getDefaultProperties();
+        $properties = $reflection->getProperties();
+
+        foreach ($properties as $property) {
+            if (!isset($defaultProperties[$property->name])) {
+                $defaultProperties[$property->name] = null;
+            }
+        }
+
+        foreach ($defaultProperties as $propertyName => $propertyValue) {
             if ($propertyName == 'subModels') {
                 continue;
             }
@@ -89,6 +97,7 @@ abstract class AbstractModel
 
             $result[$propertyName] = $data;
         }
+
         return $result;
     }
 

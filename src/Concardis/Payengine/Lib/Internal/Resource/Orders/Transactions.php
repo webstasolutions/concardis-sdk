@@ -25,7 +25,7 @@ class Transactions extends AbstractResource implements Patchable, Getable
      * @param array|AbstractModel $data
      *
      * @return Transaction
-     * @throws \Concardis\Payengine\Lib\Internal\Exception\PayengineResourceException
+     * @throws \Concardis\Payengine\Lib\Internal\Exception\PayEngineResourceException
      */
     public function patch(array|AbstractModel $data): Transaction
     {

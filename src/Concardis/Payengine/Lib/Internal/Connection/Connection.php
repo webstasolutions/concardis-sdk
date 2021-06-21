@@ -6,7 +6,8 @@ use \Curl\Curl;
 
 use \Concardis\Payengine\Lib\Internal\Config\MerchantConfiguration;
 use \Concardis\Payengine\Lib\Internal\Constants\Api;
-use \Concardis\Payengine\Lib\Internal\Exception\PayengineResourceException;
+use \Concardis\Payengine\Lib\Internal\Exception\PayEngineResourceException;
+use JetBrains\PhpStorm\Pure;
 
 /**
  * Class Connection
@@ -67,7 +68,7 @@ class Connection implements ConnectionInterface
     /**
      * @return string
      */
-    protected function getEndpoint(): string
+    #[Pure] protected function getEndpoint(): string
     {
         $mode = Api::API_ENDPOINT_TEST;
         if ($this->merchantConfig->isIsLiveMode()) {
@@ -85,13 +86,15 @@ class Connection implements ConnectionInterface
      * @param array $payload
      *
      * @return mixed
-     * @throws PayengineResourceException
+     * @throws PayEngineResourceException
      */
     public function post(string $path, array $payload): mixed
     {
         $this->setDefaultHeader();
         $resourceEndpoint = $this->getEndpoint() . $path;
+
         $payload = json_encode($payload);
+var_dump($payload);
         $this->curl->post($resourceEndpoint, $payload);
 
         $this->checkSuccess($resourceEndpoint, $payload);
@@ -104,7 +107,7 @@ class Connection implements ConnectionInterface
      * @param array $payload
      *
      * @return mixed
-     * @throws PayengineResourceException
+     * @throws PayEngineResourceException
      */
     public function patch(string $path, array $payload): mixed
     {
@@ -122,7 +125,7 @@ class Connection implements ConnectionInterface
      * @param string $path
      *
      * @return mixed
-     * @throws PayengineResourceException
+     * @throws PayEngineResourceException
      */
     public function delete(string $path): mixed
     {
@@ -140,7 +143,7 @@ class Connection implements ConnectionInterface
      * @param array $queryParams
      *
      * @return mixed
-     * @throws PayengineResourceException
+     * @throws PayEngineResourceException
      */
     public function get(string $path, array $queryParams = []): mixed
     {
@@ -162,13 +165,15 @@ class Connection implements ConnectionInterface
      * @param string $url
      * @param string|null $payload
      * @return bool
-     * @throws PayengineResourceException
+     * @throws PayEngineResourceException
      */
     private function checkSuccess(string $url, ?string $payload = null): bool
     {
         if (!$this->curl->isSuccess()) {
-            $requestException = new PayengineResourceException(
-                $this->curl->error_message, $this->curl->http_status_code
+var_dump($this->curl->response);
+            $requestException = new PayEngineResourceException(
+                $this->curl->error_message,
+                $this->curl->http_status_code
             );
 
             if (!empty($payload)) {
@@ -178,7 +183,9 @@ class Connection implements ConnectionInterface
             $requestException->setResourceEndpoint($url);
             $requestException->setRequestHeaders($this->curl->request_headers);
             $requestException->setResponseHeader($this->curl->response_headers);
-            $requestException->setResponseBody($this->curl->response);
+            if (is_string($this->curl->response)) {
+                $requestException->setResponseBody($this->curl->response);
+            }
             throw $requestException;
         }
         return true;

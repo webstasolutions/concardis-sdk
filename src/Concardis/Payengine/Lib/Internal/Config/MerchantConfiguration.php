@@ -24,9 +24,9 @@ class MerchantConfiguration
     private bool $isLiveMode;
 
     /**
-     * @var string
+     * @var string|null
      */
-    private string $endpoint;
+    private ?string $endpoint = null;
 
     /**
      * @return string
@@ -91,9 +91,9 @@ class MerchantConfiguration
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getEndpoint(): string
+    public function getEndpoint(): ?string
     {
         return $this->endpoint;
     }

@@ -25,7 +25,7 @@ class Addresses extends AbstractResource implements Postable, Getable
      * @param array|AbstractModel $data
      *
      * @return Address
-     * @throws \Concardis\Payengine\Lib\Internal\Exception\PayengineResourceException
+     * @throws \Concardis\Payengine\Lib\Internal\Exception\PayEngineResourceException
      */
     public function post(array|AbstractModel $data): Address
     {

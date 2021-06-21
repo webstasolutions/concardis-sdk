@@ -12,7 +12,7 @@ use Concardis\Payengine\Lib\Internal\Resource\Customers\Personas;
 use Concardis\Payengine\Lib\Models\Response\ListWrapper;
 use Concardis\Payengine\Lib\PayEngine;
 use Concardis\Payengine\Lib\Test\Fixture\Model\CustomerFixture;
-use Concardis\Payengine\Lib\Internal\Exception\PayengineResourceException;
+use Concardis\Payengine\Lib\Internal\Exception\PayEngineResourceException;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -72,7 +72,7 @@ class CustomersTest extends TestCase
         try {
             $result = $this->payengine->customer()->post($customer->__toArray());
             $this->fail();
-        } catch (PayengineResourceException $e) {
+        } catch (PayEngineResourceException $e) {
             $this->assertEquals('https://apitest.payengine.de/v1/customers', $e->getResourceEndpoint());
             $this->assertEquals(
                 '{"email":"postcustomerresourceexceptiontest@testemail.io","merchantCustomerId":"customer_postcustomerresourceexceptiontest"}', 
@@ -106,7 +106,7 @@ class CustomersTest extends TestCase
         try {
             $result = $this->payengine->customer('oneid')->patch($customer->__toArray());
             $this->fail();
-        } catch (PayengineResourceException $e) {
+        } catch (PayEngineResourceException $e) {
             $this->assertEquals('https://apitest.payengine.de/v1/customers/oneid', $e->getResourceEndpoint());
             $this->assertEquals(
                 '{"email":"patchcustomerresourceexceptiontest@testemail.io","merchantCustomerId":"customer_patchcustomerresourceexceptiontest"}', 
@@ -176,7 +176,7 @@ class CustomersTest extends TestCase
         try {
             $result = $this->payengine->customer()->get();
             $this->fail();
-        } catch (PayengineResourceException $e) {
+        } catch (PayEngineResourceException $e) {
             $this->assertEquals('https://apitest.payengine.de/v1/customers', $e->getResourceEndpoint());
         }
     }

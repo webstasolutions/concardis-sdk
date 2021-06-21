@@ -30,7 +30,7 @@ class Orders extends AbstractResource implements Postable, Patchable, Getable
      * @param array|\Concardis\Payengine\Lib\Internal\AbstractClass\AbstractModel $data
      *
      * @return Order
-     * @throws \Concardis\Payengine\Lib\Internal\Exception\PayengineResourceException
+     * @throws \Concardis\Payengine\Lib\Internal\Exception\PayEngineResourceException
      */
     public function post(array|AbstractModel $data): Order
     {
@@ -46,7 +46,7 @@ class Orders extends AbstractResource implements Postable, Patchable, Getable
      * @param array|AbstractModel $data
      *
      * @return Order
-     * @throws \Concardis\Payengine\Lib\Internal\Exception\PayengineResourceException
+     * @throws \Concardis\Payengine\Lib\Internal\Exception\PayEngineResourceException
      */
     public function patch(array|AbstractModel $data): Order
     {

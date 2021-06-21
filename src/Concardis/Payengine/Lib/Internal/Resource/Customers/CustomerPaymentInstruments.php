@@ -24,7 +24,7 @@ class CustomerPaymentInstruments extends AbstractResource implements Postable, D
      * @param $data
      *
      * @return PaymentInstrument
-     * @throws \Concardis\Payengine\Lib\Internal\Exception\PayengineResourceException
+     * @throws \Concardis\Payengine\Lib\Internal\Exception\PayEngineResourceException
      */
     public function post($data): PaymentInstrument
     {
@@ -38,7 +38,7 @@ class CustomerPaymentInstruments extends AbstractResource implements Postable, D
 
     /**
      * @return mixed
-     * @throws \Concardis\Payengine\Lib\Internal\Exception\PayengineResourceException
+     * @throws \Concardis\Payengine\Lib\Internal\Exception\PayEngineResourceException
      */
     public function delete(): mixed
     {

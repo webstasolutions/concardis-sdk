@@ -14,22 +14,22 @@ class Payment extends AbstractModel
     /**
      * @var string
      */
-    private string $accountHolder;
+    private string $accountHolder = '';
 
     /**
      * @var string
      */
-    private string $bankName;
+    private string $bankName = '';
 
     /**
      * @var string
      */
-    private string $bic;
+    private string $bic = '';
 
     /**
      * @var string
      */
-    private string $iban;
+    private string $iban = '';
 
     /**
      * @var string
@@ -39,64 +39,64 @@ class Payment extends AbstractModel
     /**
      * SEPA mandate
      *
-     * @var Mandate
+     * @var Mandate|null
      */
-    private Mandate $mandate;
+    private ?Mandate $mandate = null;
 
     /**
      * @var int
      */
-    private int $numberOfRates;
+    private int $numberOfRates = 0;
 
     /**
      * @var integer
      */
-    private int $rate;
+    private int $rate = 0;
 
     /**
      * @var integer
      */
-    private int $lastRate;
+    private int $lastRate = 0;
 
     /**
      * @var float
      */
-    private float $interestRate;
+    private float $interestRate = 0.0;
 
     /**
      * @var integer
      */
-    private int $totalAmount;
+    private int $totalAmount = 0;
 
     /**
      * @var string
      */
-    private string $riskIdentId;
+    private string $riskIdentId = '';
 
     /**
      * @var string
      */
-    private string $cardNumber;
+    private string $cardNumber = '';
 
     /**
      * @var string
      */
-    private string $cardHolder;
+    private string $cardHolder = '';
 
     /**
      * @var string
      */
-    private string $verification;
+    private string $verification = '';
 
     /**
      * @var string
      */
-    private string $expiryYear;
+    private string $expiryYear = '';
 
     /**
      * @var string
      */
-    private string $expiryMonth;
+    private string $expiryMonth = '';
 
     /**
      * @return string
@@ -189,9 +189,9 @@ class Payment extends AbstractModel
     }
 
     /**
-     * @return Mandate
+     * @return Mandate|null
      */
-    public function getMandate(): Mandate
+    public function getMandate(): ?Mandate
     {
         return $this->mandate;
     }

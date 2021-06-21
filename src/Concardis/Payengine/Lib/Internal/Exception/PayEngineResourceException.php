@@ -6,7 +6,7 @@ namespace Concardis\Payengine\Lib\Internal\Exception;
  * Class PayengineResourceException
  * @package Concardis\Payengine\Lib\Internal\Exception
  */
-class PayengineResourceException extends \Exception
+class PayEngineResourceException extends \Exception
 {
     /**
      * Resource endpoint of the request
@@ -57,7 +57,7 @@ class PayengineResourceException extends \Exception
      * Set resource endpoint of the request
      *
      * @param string $resourceEndpoint
-     * @return PayengineResourceException
+     * @return PayEngineResourceException
      */
     public function setResourceEndpoint(string $resourceEndpoint): self
     {
@@ -79,7 +79,7 @@ class PayengineResourceException extends \Exception
      * Set payload of the request (request body)
      *
      * @param string $payload
-     * @return PayengineResourceException
+     * @return PayEngineResourceException
      */
     public function setPayload(string $payload): self
     {
@@ -101,7 +101,7 @@ class PayengineResourceException extends \Exception
      * Set request headers
      *
      * @param array $requestHeaders
-     * @return PayengineResourceException
+     * @return PayEngineResourceException
      */
     public function setRequestHeaders(array $requestHeaders): self
     {
@@ -123,7 +123,7 @@ class PayengineResourceException extends \Exception
      * Set body of the API response
      *
      * @param string $responseBody
-     * @return PayengineResourceException
+     * @return PayEngineResourceException
      */
     public function setResponseBody(string $responseBody): self
     {
@@ -145,7 +145,7 @@ class PayengineResourceException extends \Exception
      * Set header of the API response
      *
      * @param array $responseHeader
-     * @return PayengineResourceException
+     * @return PayEngineResourceException
      */
     public function setResponseHeader(array $responseHeader): self
     {

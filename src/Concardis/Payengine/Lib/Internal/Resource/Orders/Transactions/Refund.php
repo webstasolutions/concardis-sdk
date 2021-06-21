@@ -23,7 +23,7 @@ class Refund extends AbstractResource implements Postable
      * @param array|AbstractModel $data
      *
      * @return Transaction
-     * @throws \Concardis\Payengine\Lib\Internal\Exception\PayengineResourceException
+     * @throws \Concardis\Payengine\Lib\Internal\Exception\PayEngineResourceException
      */
     public function post(array|AbstractModel $data): Transaction
     {

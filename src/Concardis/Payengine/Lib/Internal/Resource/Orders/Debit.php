@@ -23,7 +23,7 @@ class Debit extends AbstractResource implements Postable
      * @param array|AbstractModel $data
      *
      * @return Order
-     * @throws \Concardis\Payengine\Lib\Internal\Exception\PayengineResourceException
+     * @throws \Concardis\Payengine\Lib\Internal\Exception\PayEngineResourceException
      */
     public function post(array|AbstractModel $data): Order
     {

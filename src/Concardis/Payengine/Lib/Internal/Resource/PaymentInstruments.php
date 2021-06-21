@@ -27,7 +27,7 @@ class PaymentInstruments extends AbstractResource implements Postable, Getable, 
      * @param array|AbstractModel $data
      *
      * @return PaymentInstrument
-     * @throws \Concardis\Payengine\Lib\Internal\Exception\PayengineResourceException
+     * @throws \Concardis\Payengine\Lib\Internal\Exception\PayEngineResourceException
      */
     public function post(array|AbstractModel $data): PaymentInstrument
     {
@@ -43,7 +43,7 @@ class PaymentInstruments extends AbstractResource implements Postable, Getable, 
      * @param array|AbstractModel $data
      *
      * @return PaymentInstrument
-     * @throws \Concardis\Payengine\Lib\Internal\Exception\PayengineResourceException
+     * @throws \Concardis\Payengine\Lib\Internal\Exception\PayEngineResourceException
      */
     public function patch(array|AbstractModel $data): PaymentInstrument
     {

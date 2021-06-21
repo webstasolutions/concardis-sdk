@@ -42,19 +42,19 @@ class Address extends AbstractModel
     private string $state;
 
     /**
-     * @var string
+     * @var string|null
      */
-    private string $title;
+    private ?string $title;
+
+    /**
+     * @var string|null
+     */
+    private ?string $street;
 
     /**
      * @var string
      */
-    private string $street;
-
-    /**
-     * @var string
-     */
-    private string $additionalDetails;
+    private string $additionalDetails = '';
 
     /**
      * @var string
@@ -193,10 +193,10 @@ class Address extends AbstractModel
     }
 
     /**
-     * @param string $title
+     * @param string|null $title
      * @return Address
      */
-    public function setTitle(string $title): self
+    public function setTitle(?string $title): self
     {
         $this->title = $title;
         return $this;
@@ -211,10 +211,10 @@ class Address extends AbstractModel
     }
 
     /**
-     * @param string $street
+     * @param string|null $street
      * @return Address
      */
-    public function setStreet(string $street): self
+    public function setStreet(?string $street): self
     {
         $this->street = $street;
         return $this;

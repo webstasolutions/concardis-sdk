@@ -1,11 +1,12 @@
-<?php
+<?php declare(strict_types=1);
 
 /**
  * This is an example file for the basic usage of the SDK.
  * In the examples below we are using the requestModels, but you can also put an assoc array as postData instead.
  */
 
-include_once "../autoload.php";
+//include_once "../autoload.php";
+include_once __DIR__ . '/../vendor/autoload.php';
 
 use \Concardis\Payengine\Lib\Payengine;
 use \Concardis\Payengine\Lib\Internal\Config\MerchantConfiguration;
@@ -14,11 +15,10 @@ use \Concardis\Payengine\Lib\Models\Request\Customers\Persona as PersonaRequest;
 use \Concardis\Payengine\Lib\Models\Request\Customers\Address as AddressRequest;
 use \Concardis\Payengine\Lib\Models\Request\Orders\Payment\Payment;
 
-
 // Create the configuration needed to process any requests
 $config = new MerchantConfiguration();
-$config->setApiKey('YOUR_API_KEY'); //TODO: Enter your API-Key
-$config->setMerchantId('YOUR_MERCHANT_ID'); // TODO: Enter your merchantId
+$config->setApiKey('0JG36wtOE69cfza0'); //TODO: Enter your API-Key
+$config->setMerchantId('merchant_k8bbpfta4y'); // TODO: Enter your merchantId
 $config->setIsLiveMode(false);
 
 
@@ -44,7 +44,7 @@ $personaRequest->setFax("0123456789");
 $personaRequest->setMobile("0123456789");
 $personaRequest->setPhone("0123456789");
 
-// Since the Persona refers to a customer, you have to set the customerId.
+//// Since the Persona refers to a customer, you have to set the customerId.
 $personaResponse = $lib->customer($customerResponse->getCustomerId())->personas()->post($personaRequest);
 
 ##########################

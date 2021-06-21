@@ -63,7 +63,7 @@ abstract class AbstractResource
      * @param AbstractModel $data
      *
      * @return AbstractResponseModel
-     * @throws \Concardis\Payengine\Lib\Internal\Exception\PayengineResourceException
+     * @throws \Concardis\Payengine\Lib\Internal\Exception\PayEngineResourceException
      */
     protected function post(AbstractModel $data): AbstractResponseModel
     {
@@ -79,7 +79,7 @@ abstract class AbstractResource
      * @param array|AbstractModel $data
      *
      * @return AbstractResponseModel
-     * @throws \Concardis\Payengine\Lib\Internal\Exception\PayengineResourceException
+     * @throws \Concardis\Payengine\Lib\Internal\Exception\PayEngineResourceException
      */
     protected function patch(array|AbstractModel $data): AbstractResponseModel
     {
@@ -93,7 +93,7 @@ abstract class AbstractResource
 
     /**
      * @return void
-     * @throws \Concardis\Payengine\Lib\Internal\Exception\PayengineResourceException
+     * @throws \Concardis\Payengine\Lib\Internal\Exception\PayEngineResourceException
      */
     protected function delete(): mixed
     {
@@ -105,11 +105,11 @@ abstract class AbstractResource
      * If a resourceId is set only one result will be returned also $filter will
      * be ignored.
      *
-     * @param $filter
+     * @param array|null $filter
      * @return ListWrapper|AbstractResponseModel
-     * @throws \Exception
+     * @throws \Concardis\Payengine\Lib\Internal\Exception\PayEngineResourceException
      */
-    protected function get($filter = null): ListWrapper|AbstractResponseModel
+    protected function get(?array $filter = null): ListWrapper|AbstractResponseModel
     {
         if ($filter != null && !ArrayHelper::isAssocArray($filter)) {
             throw new \Exception("Filter parameter is wrong");
@@ -153,7 +153,7 @@ abstract class AbstractResource
 
     /**
      * @return AbstractResponseModel
-     * @throws \Concardis\Payengine\Lib\Internal\Exception\PayengineResourceException
+     * @throws \Concardis\Payengine\Lib\Internal\Exception\PayEngineResourceException
      */
     private function getOne(): AbstractResponseModel
     {

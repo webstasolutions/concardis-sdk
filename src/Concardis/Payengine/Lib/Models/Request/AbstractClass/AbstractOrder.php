@@ -26,17 +26,17 @@ class AbstractOrder extends AbstractModel
     /**
      * @var string
      */
-    protected string $merchantOrderId;
+    protected string $merchantOrderId = '';
 
     /**
      * @var string
      */
-    protected string $description;
+    protected string $description = '';
 
     /**
      * @var string
      */
-    protected string $statementDescription;
+    protected string $statementDescription = '';
 
     /**
      * @var integer
@@ -76,7 +76,7 @@ class AbstractOrder extends AbstractModel
     /**
      * @var string
      */
-    protected string $ipAddress;
+    protected string $ipAddress = '';
 
     /**
      * @var string

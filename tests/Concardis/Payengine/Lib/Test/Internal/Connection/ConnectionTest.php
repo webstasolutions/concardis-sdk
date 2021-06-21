@@ -77,7 +77,7 @@ class ConnectionTest extends TestCase
 
     /**
      * @test
-     * @expectedException \Concardis\Payengine\Lib\Internal\Exception\PayengineResourceException
+     * @expectedException \Concardis\Payengine\Lib\Internal\Exception\PayEngineResourceException
      */
     public function postTest_negative(){
         $this->connection = new Connection($this->getCurlMock(true));
@@ -97,7 +97,7 @@ class ConnectionTest extends TestCase
 
     /**
      * @test
-     * @expectedException \Concardis\Payengine\Lib\Internal\Exception\PayengineResourceException
+     * @expectedException \Concardis\Payengine\Lib\Internal\Exception\PayEngineResourceException
      */
     public function patchTest_negative(){
         $this->connection = new Connection($this->getCurlMock(true));
@@ -117,7 +117,7 @@ class ConnectionTest extends TestCase
 
     /**
      * @test
-     * @expectedException \Concardis\Payengine\Lib\Internal\Exception\PayengineResourceException
+     * @expectedException \Concardis\Payengine\Lib\Internal\Exception\PayEngineResourceException
      */
     public function deleteTest_negative(){
         $this->connection = new Connection($this->getCurlMock(true));
@@ -147,7 +147,7 @@ class ConnectionTest extends TestCase
 
     /**
      * @test
-     * @expectedException \Concardis\Payengine\Lib\Internal\Exception\PayengineResourceException
+     * @expectedException \Concardis\Payengine\Lib\Internal\Exception\PayEngineResourceException
      */
     public function getTest_negative(){
         $this->connection = new Connection($this->getCurlMock(true));

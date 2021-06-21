@@ -30,7 +30,7 @@ class Customers extends AbstractResource implements Postable, Patchable, Getable
      * @param array|AbstractModel $data
      *
      * @return Customer
-     * @throws \Concardis\Payengine\Lib\Internal\Exception\PayengineResourceException
+     * @throws \Concardis\Payengine\Lib\Internal\Exception\PayEngineResourceException
      */
     public function post(array|AbstractModel $data): Customer
     {
@@ -46,7 +46,7 @@ class Customers extends AbstractResource implements Postable, Patchable, Getable
      * @param array|AbstractModel $data
      *
      * @return Customer
-     * @throws \Concardis\Payengine\Lib\Internal\Exception\PayengineResourceException
+     * @throws \Concardis\Payengine\Lib\Internal\Exception\PayEngineResourceException
      */
     public function patch(array|AbstractModel $data): Customer
     {
