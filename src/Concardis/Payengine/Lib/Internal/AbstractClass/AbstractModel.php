@@ -51,7 +51,7 @@ abstract class AbstractModel
         }
 
         foreach ($defaultProperties as $propertyName => $propertyValue) {
-            if ($propertyName == 'subModels') {
+            if ($propertyName == 'subModels' || !isset($this->{$propertyName})) {
                 continue;
             }
 
