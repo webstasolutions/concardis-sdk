@@ -12,57 +12,57 @@ class Meta extends AbstractResponseModel
 {
 
     /**
-     * @var string
+     * @var string|null
      * relevant for RatePAY
      */
-    private string $riskIdentId;
+    private ?string $riskIdentId = null;
 
     /**
-     * @var integer
+     * @var integer|null
      * relevant for RatePAY Installment
      */
-    private int $totalAmount;
+    private ?int $totalAmount = null;
 
     /**
-     * @var integer
+     * @var integer|null
      * relevant for RatePAY Installment
      */
-    private int $numberOfRates;
+    private ?int $numberOfRates = null;
 
     /**
-     * @var integer
+     * @var integer|null
      * relevant for RatePAY Installment
      */
-    private int $rate;
+    private ?int $rate = null;
 
     /**
-     * @var integer
+     * @var integer|null
      * relevant for RatePAY Installment
      */
-    private int $lastRate;
+    private ?int $lastRate = null;
 
     /**
-     * @var float
+     * @var float|null
      * relevant for RatePAY Installment
      */
-    private float $interestRate;
+    private ?float $interestRate = null;
 
     /**
-     * @var integer
+     * @var integer|null
      * relevant for RatePAY Installment
      */
-    private int $paymentFirstDay;
+    private ?int $paymentFirstDay = null;
 
     /**
-     * @var string
+     * @var string|null
      * relevant for RatePAY Installment
      */
-    private string $descriptor;
+    private ?string $descriptor = null;
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getRiskIdentId(): string
+    public function getRiskIdentId(): ?string
     {
         return $this->riskIdentId;
     }
@@ -78,9 +78,9 @@ class Meta extends AbstractResponseModel
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getTotalAmount(): int
+    public function getTotalAmount(): ?int
     {
         return $this->totalAmount;
     }
@@ -96,9 +96,9 @@ class Meta extends AbstractResponseModel
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getNumberOfRates(): int
+    public function getNumberOfRates(): ?int
     {
         return $this->numberOfRates;
     }
@@ -114,9 +114,9 @@ class Meta extends AbstractResponseModel
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getRate(): int
+    public function getRate(): ?int
     {
         return $this->rate;
     }
@@ -132,9 +132,9 @@ class Meta extends AbstractResponseModel
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getLastRate(): int
+    public function getLastRate(): ?int
     {
         return $this->lastRate;
     }
@@ -150,9 +150,9 @@ class Meta extends AbstractResponseModel
     }
 
     /**
-     * @return float
+     * @return float|null
      */
-    public function getInterestRate(): float
+    public function getInterestRate(): ?float
     {
         return $this->interestRate;
     }
@@ -168,9 +168,9 @@ class Meta extends AbstractResponseModel
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getPaymentFirstDay(): int
+    public function getPaymentFirstDay(): ?int
     {
         return $this->paymentFirstDay;
     }
@@ -186,9 +186,9 @@ class Meta extends AbstractResponseModel
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getDescriptor(): string
+    public function getDescriptor(): ?string
     {
         return $this->descriptor;
     }

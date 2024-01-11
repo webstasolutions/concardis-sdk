@@ -22,9 +22,9 @@ class PaymentInstrument extends AbstractResponseModel
     private ?string $merchantPaymentInstrumentId;
 
     /**
-     * @var string
+     * @var string|null
      */
-    private string $product;
+    private ?string $product = null;
 
     /**
      * @var boolean
@@ -83,9 +83,9 @@ class PaymentInstrument extends AbstractResponseModel
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getProduct(): string
+    public function getProduct(): ?string
     {
         return $this->product;
     }

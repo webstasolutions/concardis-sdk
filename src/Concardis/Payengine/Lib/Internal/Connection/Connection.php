@@ -94,7 +94,7 @@ class Connection implements ConnectionInterface
         $resourceEndpoint = $this->getEndpoint() . $path;
 
         $payload = json_encode($payload);
-var_dump($payload);
+
         $this->curl->post($resourceEndpoint, $payload);
 
         $this->checkSuccess($resourceEndpoint, $payload);
