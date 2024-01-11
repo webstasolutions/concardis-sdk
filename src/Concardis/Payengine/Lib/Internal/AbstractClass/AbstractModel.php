@@ -36,6 +36,7 @@ abstract class AbstractModel
 
     /**
      * @return array
+     * @throws \ReflectionException
      */
     public function __toArray(): array
     {
@@ -51,7 +52,8 @@ abstract class AbstractModel
         }
 
         foreach ($defaultProperties as $propertyName => $propertyValue) {
-            if ($propertyName == 'subModels' || !isset($this->{$propertyName})) {
+            $propertyReflection = new \ReflectionProperty($this, $propertyName);
+            if ($propertyName == 'subModels'  || (!isset($this->{$propertyName}) && !$propertyReflection->isPrivate())) {
                 continue;
             }
 

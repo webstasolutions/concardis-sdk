@@ -32,9 +32,14 @@ class Payment extends AbstractModel
     private string $iban = '';
 
     /**
-     * @var string
+     * @var string|null
      */
-    private string $paymentInstrumentId;
+    private ?string $paymentInstrumentId = null;
+
+    /**
+     * @var string|int|null
+     */
+    private null|string|int $merchantPaymentInstrumentId = null;
 
     /**
      * SEPA mandate
@@ -44,29 +49,29 @@ class Payment extends AbstractModel
     private ?Mandate $mandate = null;
 
     /**
-     * @var int
+     * @var int|null
      */
-    private int $numberOfRates = 0;
+    private ?int $numberOfRates = null;
 
     /**
-     * @var integer
+     * @var integer|null
      */
-    private int $rate = 0;
+    private ?int $rate = null;
 
     /**
-     * @var integer
+     * @var integer|null
      */
-    private int $lastRate = 0;
+    private ?int $lastRate = null;
 
     /**
-     * @var float
+     * @var float|null
      */
-    private float $interestRate = 0.0;
+    private ?float $interestRate = null;
 
     /**
-     * @var integer
+     * @var integer|null
      */
-    private int $totalAmount = 0;
+    private ?int $totalAmount = null;
 
     /**
      * @var string
@@ -171,9 +176,9 @@ class Payment extends AbstractModel
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getPaymentInstrumentId(): string
+    public function getPaymentInstrumentId(): ?string
     {
         return $this->paymentInstrumentId;
     }
@@ -185,6 +190,24 @@ class Payment extends AbstractModel
     public function setPaymentInstrumentId(string $paymentInstrumentId): self
     {
         $this->paymentInstrumentId = $paymentInstrumentId;
+        return $this;
+    }
+
+    /**
+     * @return string|int|null
+     */
+    public function getMerchantPaymentInstrumentId(): null|string|int
+    {
+        return $this->merchantPaymentInstrumentId;
+    }
+
+    /**
+     * @param string|int $merchantPaymentInstrumentId
+     * @return Payment
+     */
+    public function setMerchantPaymentInstrumentId(string|int $merchantPaymentInstrumentId): self
+    {
+        $this->merchantPaymentInstrumentId = $merchantPaymentInstrumentId;
         return $this;
     }
 
@@ -225,9 +248,9 @@ class Payment extends AbstractModel
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getNumberOfRates(): int
+    public function getNumberOfRates(): ?int
     {
         return $this->numberOfRates;
     }
@@ -243,9 +266,9 @@ class Payment extends AbstractModel
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getRate(): int
+    public function getRate(): ?int
     {
         return $this->rate;
     }
@@ -261,9 +284,9 @@ class Payment extends AbstractModel
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getLastRate(): int
+    public function getLastRate(): ?int
     {
         return $this->lastRate;
     }
@@ -279,9 +302,9 @@ class Payment extends AbstractModel
     }
 
     /**
-     * @return float
+     * @return float|null
      */
-    public function getInterestRate(): float
+    public function getInterestRate(): ?float
     {
         return $this->interestRate;
     }
@@ -297,9 +320,9 @@ class Payment extends AbstractModel
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getTotalAmount(): int
+    public function getTotalAmount(): ?int
     {
         return $this->totalAmount;
     }
