@@ -18,7 +18,7 @@ abstract class AbstractResponseModel extends AbstractModel
      * @var integer
      */
     protected int $modifiedAt;
-    
+
     /**
      * @var array
      */
@@ -60,22 +60,22 @@ abstract class AbstractResponseModel extends AbstractModel
         return $this;
     }
 
-	/**
-	 * @return array
-	 */
-	public function getErrors(): array
-	{
-		return $this->errors ? $this->errors : [];
-	}
+    /**
+     * @return array
+     */
+    public function getErrors(): array
+    {
+        return $this->errors ? $this->errors : [];
+    }
 
     /**
      * @param array $errors
      * @return AbstractResponseModel
      */
-	public function setErrors(array $errors): self
-	{
-		$this->errors = $errors;
-		return $this;
-	}
+    public function setErrors(array $errors): self
+    {
+        $this->errors = $errors;
+        return $this;
+    }
 
 }

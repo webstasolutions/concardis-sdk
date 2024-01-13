@@ -87,6 +87,11 @@ class Transaction extends AbstractResponseModel
     private $providerCode;
 
     /**
+     * @var string|null
+     */
+    private ?string $merchantMessage = null;
+
+    /**
      * @return string
      */
     public function getType()
@@ -310,4 +315,21 @@ class Transaction extends AbstractResponseModel
         $this->providerCode = $providerCode;
     }
 
+    /**
+     * @return string|null
+     */
+    public function getMerchantMessage(): ?string
+    {
+        return $this->merchantMessage;
+    }
+
+    /**
+     * @param string|null $merchantMessage
+     * @return $this
+     */
+    public function setMerchantMessage(?string $merchantMessage): self
+    {
+        $this->merchantMessage = $merchantMessage;
+        return $this;
+    }
 }
