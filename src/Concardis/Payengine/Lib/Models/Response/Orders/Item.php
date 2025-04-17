@@ -44,7 +44,7 @@ class Item extends AbstractModel
     /**
      * @var integer
      */
-    private int $tax;
+    private int|float $tax;
 
     /**
      * @var integer
@@ -162,7 +162,7 @@ class Item extends AbstractModel
     /**
      * @return int
      */
-    public function getTax(): int
+    public function getTax(): int|float
     {
         return $this->tax;
     }
@@ -171,7 +171,7 @@ class Item extends AbstractModel
      * @param int $tax
      * @return Item
      */
-    public function setTax(int $tax): self
+    public function setTax(int|float $tax): self
     {
         $this->tax = $tax;
         return $this;
