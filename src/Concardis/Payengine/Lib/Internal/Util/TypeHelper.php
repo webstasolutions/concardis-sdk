@@ -18,7 +18,9 @@ class TypeHelper
     {
         foreach ($filter as $parameterName => $value){
             //convert boolean to string values to avoid booleans to be send as integers within the queryString.
-            $filter[$parameterName] = var_export($value, true);
+            if (is_bool($value)) {
+                $filter[$parameterName] = var_export($value, true);
+            }
         }
     }
 

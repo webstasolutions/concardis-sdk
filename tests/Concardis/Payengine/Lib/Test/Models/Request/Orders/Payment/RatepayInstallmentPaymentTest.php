@@ -15,29 +15,29 @@ class RatepayInstallmentPaymentTest extends TestCase
     public function toArray() {
         $ratepayInstallmentPayment = new Payment();
         $ratepayInstallmentPayment->setRiskIdentId('riskidentid');
-        $ratepayInstallmentPayment->setNumberOfRates('numberOfRates');
-        $ratepayInstallmentPayment->setRate('rate');
-        $ratepayInstallmentPayment->setLastRate('lastRate');
-        $ratepayInstallmentPayment->setInterestRate('interestRate');
-        $ratepayInstallmentPayment->setTotalAmount('totalAmount');
+        $ratepayInstallmentPayment->setNumberOfRates(3);
+        $ratepayInstallmentPayment->setRate(100);
+        $ratepayInstallmentPayment->setLastRate(50);
+        $ratepayInstallmentPayment->setInterestRate(5.5);
+        $ratepayInstallmentPayment->setTotalAmount(350);
 
         $ratepayInstallmentPaymentSetter = new Payment();
         $ratepayInstallmentPaymentSetter->setRatepayInstallment(
-            'riskidentid', 'rate', 'interestRate', 'numberOfRates',
-            'totalAmount', 'lastRate'
+            'riskidentid', 100, 5.5, 3,
+            350, 50
         );
 
         $actual = $ratepayInstallmentPayment->__toArray();
         $actualSetter = $ratepayInstallmentPaymentSetter->__toArray();
         $expected = array(
             'riskIdentId' => "riskidentid",
-            'numberOfRates' => "numberOfRates",
-            'rate' => "rate",
-            'lastRate' => "lastRate",
-            'interestRate' => "interestRate",
-            'totalAmount' => "totalAmount"
+            'numberOfRates' => 3,
+            'rate' => 100,
+            'lastRate' => 50,
+            'interestRate' => 5.5,
+            'totalAmount' => 350
         );
-        
+
         $this->assertEquals($expected, $actual);
         $this->assertEquals($expected, $actualSetter);
     }
@@ -48,11 +48,11 @@ class RatepayInstallmentPaymentTest extends TestCase
     public function toArrayWithBankData() {
         $ratepayInstallmentPayment = new Payment();
         $ratepayInstallmentPayment->setRiskIdentId('riskidentid');
-        $ratepayInstallmentPayment->setNumberOfRates('numberOfRates');
-        $ratepayInstallmentPayment->setRate('rate');
-        $ratepayInstallmentPayment->setLastRate('lastRate');
-        $ratepayInstallmentPayment->setInterestRate('interestRate');
-        $ratepayInstallmentPayment->setTotalAmount('totalAmount');
+        $ratepayInstallmentPayment->setNumberOfRates(3);
+        $ratepayInstallmentPayment->setRate(100);
+        $ratepayInstallmentPayment->setLastRate(50);
+        $ratepayInstallmentPayment->setInterestRate(5.5);
+        $ratepayInstallmentPayment->setTotalAmount(350);
         $ratepayInstallmentPayment->setAccountHolder('accountholder');
         $ratepayInstallmentPayment->setBankName('bankname');
         $ratepayInstallmentPayment->setBic('bic');
@@ -61,19 +61,19 @@ class RatepayInstallmentPaymentTest extends TestCase
         $ratepayInstallmentPaymentSetter = new Payment();
         $ratepayInstallmentPaymentSetter->setRatepayInstallmentWithBankData(
             'riskidentid', 'iban', 'bic', 'accountholder', 'bankname',
-            'rate', 'interestRate', 'numberOfRates',
-            'totalAmount', 'lastRate'
+            100, 5.5, 3,
+            350, 50
         );
 
         $actual = $ratepayInstallmentPayment->__toArray();
         $actualSetter = $ratepayInstallmentPaymentSetter->__toArray();
         $expected = array(
             'riskIdentId' => "riskidentid",
-            'numberOfRates' => "numberOfRates",
-            'rate' => "rate",
-            'lastRate' => "lastRate",
-            'interestRate' => "interestRate",
-            'totalAmount' => "totalAmount",
+            'numberOfRates' => 3,
+            'rate' => 100,
+            'lastRate' => 50,
+            'interestRate' => 5.5,
+            'totalAmount' => 350,
             'accountHolder' => "accountholder",
             'bankName' => "bankname",
             'bic' => "bic",
@@ -90,29 +90,29 @@ class RatepayInstallmentPaymentTest extends TestCase
     public function toArrayWithPaymentInstrument() {
         $ratepayInstallmentPayment = new Payment();
         $ratepayInstallmentPayment->setRiskIdentId('riskidentid');
-        $ratepayInstallmentPayment->setNumberOfRates('numberOfRates');
-        $ratepayInstallmentPayment->setRate('rate');
-        $ratepayInstallmentPayment->setLastRate('lastRate');
-        $ratepayInstallmentPayment->setInterestRate('interestRate');
-        $ratepayInstallmentPayment->setTotalAmount('totalAmount');
+        $ratepayInstallmentPayment->setNumberOfRates(3);
+        $ratepayInstallmentPayment->setRate(100);
+        $ratepayInstallmentPayment->setLastRate(50);
+        $ratepayInstallmentPayment->setInterestRate(5.5);
+        $ratepayInstallmentPayment->setTotalAmount(350);
         $ratepayInstallmentPayment->setPaymentInstrumentId('paymentinstrumentid');
 
         $ratepayInstallmentPaymentSetter = new Payment();
         $ratepayInstallmentPaymentSetter->setRatepayInstallmentWithPaymentInstrument(
             'riskidentid', 'paymentinstrumentid',
-            'rate', 'interestRate', 'numberOfRates',
-            'totalAmount', 'lastRate'
+            100, 5.5, 3,
+            350, 50
         );
 
         $actual = $ratepayInstallmentPayment->__toArray();
         $actualSetter = $ratepayInstallmentPaymentSetter->__toArray();
         $expected = array(
             'riskIdentId' => "riskidentid",
-            'numberOfRates' => "numberOfRates",
-            'rate' => "rate",
-            'lastRate' => "lastRate",
-            'interestRate' => "interestRate",
-            'totalAmount' => "totalAmount",
+            'numberOfRates' => 3,
+            'rate' => 100,
+            'lastRate' => 50,
+            'interestRate' => 5.5,
+            'totalAmount' => 350,
             'paymentInstrumentId' => "paymentinstrumentid"
         );
 

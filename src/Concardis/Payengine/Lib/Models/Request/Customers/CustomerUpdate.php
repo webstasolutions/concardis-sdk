@@ -15,7 +15,7 @@ class CustomerUpdate extends AbstractModel
      * Id for this customer on your System
      * @var string
      */
-    private string $merchantCustomerId;
+    private string $merchantCustomerId = '';
 
     /**
      * @return string

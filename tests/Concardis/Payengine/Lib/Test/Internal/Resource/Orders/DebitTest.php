@@ -22,13 +22,13 @@ class DebitTest extends TestCase
      */
     private $payengine;
 
-    public function setup(){
+    protected function setUp(): void {
         $this->payengine = new PayEngine(new MerchantConfiguration());
         $this->payengine->setConnection($this->getConnectionMock());
     }
 
     /**
-     * @return \PHPUnit_Framework_MockObject_MockObject
+     * @return \PHPUnit\Framework\MockObject\MockObject
      */
     protected function getConnectionMock(){
         $mock = $this->createMock(Connection::class);

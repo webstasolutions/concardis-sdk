@@ -95,7 +95,7 @@ class Orders extends AbstractResource implements Postable, Patchable, Getable
      * @return Transactions
      * @throws \Exception
      */
-    public function transactions(string $id = null): Transactions
+    public function transactions(?string $id = null): Transactions
     {
         if(!isset($this->resourceId)){
             throw new \Exception(ErrorCodes::SDK_ORDERID_MISSING);

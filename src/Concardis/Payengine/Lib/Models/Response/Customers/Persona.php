@@ -14,47 +14,47 @@ class Persona extends AbstractResponseModel
     /**
      * @var string
      */
-    private string $fax;
+    private string $fax = '';
 
     /**
      * @var string
      */
-    private string $phone;
+    private string $phone = '';
 
     /**
      * @var integer
      */
-    private int $birthday;
+    private int $birthday = 0;
 
     /**
      * @var string
      */
-    private string $firstName;
+    private string $firstName = '';
 
     /**
      * @var string
      */
-    private string $title;
+    private string $title = '';
 
     /**
      * @var string
      */
-    private string $lastName;
+    private string $lastName = '';
 
     /**
      * @var string
      */
-    private string $personaId;
+    private string $personaId = '';
 
     /**
      * @var string
      */
-    private string $gender;
+    private string $gender = '';
 
     /**
      * @var string
      */
-    private string $mobile;
+    private string $mobile = '';
 
     /**
      * @return string

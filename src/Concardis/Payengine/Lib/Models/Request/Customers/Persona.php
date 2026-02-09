@@ -16,43 +16,43 @@ class Persona extends AbstractModel
      * Firstname of this person
      * @var string
      */
-    private string $firstName;
+    private string $firstName = '';
 
     /**
      * Lastname of this person
      * @var string
      */
-    private string $lastName;
+    private string $lastName = '';
 
     /**
      * @var string
      */
-    private string $phone;
+    private string $phone = '';
 
     /**
      * @var string
      */
-    private string $mobile;
+    private string $mobile = '';
 
     /**
      * @var string
      */
-    private string $fax;
+    private string $fax = '';
 
     /**
-     * @var integer
+     * @var integer|null
      */
-    private int $birthday;
-
-    /**
-     * @var string
-     */
-    private string $gender;
+    private ?int $birthday = null;
 
     /**
      * @var string
      */
-    private string $title;
+    private string $gender = '';
+
+    /**
+     * @var string
+     */
+    private string $title = '';
 
     /**
      * @return string
@@ -147,16 +147,16 @@ class Persona extends AbstractModel
     /**
      * @return integer
      */
-    public function getBirthday(): int
+    public function getBirthday(): ?int
     {
         return $this->birthday;
     }
 
     /**
-     * @param integer $birthday
+     * @param integer|null $birthday
      * @return Persona
      */
-    public function setBirthday(int $birthday): self
+    public function setBirthday(?int $birthday): self
     {
         $this->birthday = $birthday;
         return $this;

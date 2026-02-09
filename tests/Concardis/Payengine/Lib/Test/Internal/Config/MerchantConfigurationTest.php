@@ -19,7 +19,7 @@ class MerchantConfigurationTest extends TestCase
      */
     private $testedClass;
 
-    public function setup(){
+    protected function setUp(): void {
         $this->testedClass = new MerchantConfiguration();
     }
 

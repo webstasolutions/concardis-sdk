@@ -14,12 +14,12 @@ class PaymentInstrument extends AbstractResponseModel
     /**
      * @var string
      */
-    private string $paymentInstrumentId;
+    private string $paymentInstrumentId = '';
 
     /**
      * @var string|null
      */
-    private ?string $merchantPaymentInstrumentId;
+    private ?string $merchantPaymentInstrumentId = null;
 
     /**
      * @var string|null
@@ -29,22 +29,22 @@ class PaymentInstrument extends AbstractResponseModel
     /**
      * @var boolean
      */
-    private bool $recurring;
+    private bool $recurring = false;
 
     /**
      * @var array
      */
-    private array $attributes;
+    private array $attributes = [];
 
     /**
      * @var  string
      */
-    private string $origin;
+    private string $origin = '';
 
     /**
      * @var  string
      */
-    private string $type;
+    private string $type = '';
 
     /**
      * @return string

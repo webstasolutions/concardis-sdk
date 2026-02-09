@@ -12,19 +12,19 @@ use Concardis\Payengine\Lib\Models\Request\Orders\Async;
 class Order extends AbstractOrder
 {
     /**
-     * @var Async
+     * @var Async|null
      */
-    private Async $async;
+    private ?Async $async = null;
 
     /**
-     * @var array
+     * @var array|null
      */
-    private array $allowedProducts;
+    private ?array $allowedProducts = null;
 
     /**
      * @var string
      */
-    private string $transactionType;
+    private string $transactionType = '';
 
     /**
      * @return mixed
@@ -47,7 +47,7 @@ class Order extends AbstractOrder
     /**
      * @return array
      */
-    public function getAllowedProducts(): array
+    public function getAllowedProducts(): ?array
     {
         return $this->allowedProducts;
     }

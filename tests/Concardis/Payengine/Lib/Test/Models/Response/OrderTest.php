@@ -20,10 +20,10 @@ class OrderTest extends TestCase
      */
     private $testedClass;
 
-    public function setUp()
+    protected function setUp(): void
     {
-        $this->testedClass = OrderFixture::getResponse();
         parent::setUp();
+        $this->testedClass = OrderFixture::getResponse();
     }
 
     /**

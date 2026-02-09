@@ -30,7 +30,7 @@ class TransactionsTest extends TestCase
     }
 
     /**
-     * @return \PHPUnit_Framework_MockObject_MockObject
+     * @return \PHPUnit\Framework\MockObject\MockObject
      */
     protected function getConnectionMock(){
         $mock = $this->createMock(Connection::class);

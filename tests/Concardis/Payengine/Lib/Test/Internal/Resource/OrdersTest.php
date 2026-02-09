@@ -33,7 +33,7 @@ class OrdersTest extends TestCase
     }
 
     /**
-     * @return \PHPUnit_Framework_MockObject_MockObject
+     * @return \PHPUnit\Framework\MockObject\MockObject
      */
     protected function getConnectionMock(){
         $mock = $this->createMock(Connection::class);
@@ -137,10 +137,10 @@ class OrdersTest extends TestCase
 
     /**
      * @test
-     * @expectedException \Exception
      */
     public function getSubResourceTransactions_should_fail()
     {
+        $this->expectException(\Exception::class);
         $this->payengine->orders()->transactions();
     }
 

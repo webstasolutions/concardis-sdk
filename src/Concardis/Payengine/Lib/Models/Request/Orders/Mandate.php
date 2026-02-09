@@ -15,21 +15,21 @@ class Mandate extends AbstractModel
      *
      * @var string
      */
-    private string $mandateId;
+    private string $mandateId = '';
 
     /**
      * Date/Time of mandate creation
      *
      * @var string
      */
-    private string $createdDateTime;
+    private string $createdDateTime = '';
 
     /**
      * Mandate text
      *
      * @var string
      */
-    private string $mandateText;
+    private string $mandateText = '';
 
     /**
      * Get mandate id

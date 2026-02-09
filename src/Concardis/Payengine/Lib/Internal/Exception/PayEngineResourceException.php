@@ -13,35 +13,35 @@ class PayEngineResourceException extends \Exception
      *
      * @var string
      */
-    protected string $resourceEndpoint;
+    protected string $resourceEndpoint = '';
 
     /**
      * Payload of the request (request body)
      *
      * @var string
      */
-    protected string $payload;
+    protected string $payload = '';
 
     /**
      * Request headers
      *
      * @var array
      */
-    protected array $requestHeaders;
+    protected array $requestHeaders = [];
 
     /**
      * Body of the API response
      *
      * @var string
      */
-    protected string $responseBody;
+    protected string $responseBody = '';
 
     /**
      * Header of the API response
      *
      * @var array
      */
-    protected array $responseHeader;
+    protected array $responseHeader = [];
 
     /**
      * Get resource endpoint of the request

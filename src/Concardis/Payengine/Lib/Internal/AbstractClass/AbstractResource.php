@@ -17,12 +17,12 @@ abstract class AbstractResource
     /**
      * @var string
      */
-    protected string $resourcePath;
+    protected string $resourcePath = '';
 
     /**
      * @var string
      */
-    protected string $resourcePathWithId;
+    protected string $resourcePathWithId = '';
 
     /**
      * @var string|null
@@ -60,12 +60,12 @@ abstract class AbstractResource
     }
 
     /**
-     * @param AbstractModel $data
+     * @param array|AbstractModel $data
      *
      * @return AbstractResponseModel
      * @throws \Concardis\Payengine\Lib\Internal\Exception\PayEngineResourceException
      */
-    protected function post(AbstractModel $data): AbstractResponseModel
+    protected function post(array|AbstractModel $data): AbstractResponseModel
     {
         if ($data instanceof AbstractModel) {
             $data = $data->__toArray();

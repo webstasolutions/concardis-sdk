@@ -14,57 +14,57 @@ class PaymentInstrument extends AbstractModel
     /**
      * @var string
      */
-    private string $cardNumber;
+    private string $cardNumber = '';
 
     /**
      * @var string
      */
-    private string $accountHolder;
+    private string $accountHolder = '';
 
     /**
      * @var string
      */
-    private string $cardHolder;
+    private string $cardHolder = '';
 
     /**
      * @var string
      */
-    private string $verification;
+    private string $verification = '';
 
     /**
      * @var string
      */
-    private string $merchantPaymentInstrumentId;
+    private string $merchantPaymentInstrumentId = '';
 
     /**
      * @var string
      */
-    private string $product;
+    private string $product = '';
 
     /**
      * @var string
      */
-    private string $expiryYear;
+    private string $expiryYear = '';
 
     /**
      * @var string
      */
-    private string $bic;
+    private string $bic = '';
 
     /**
      * @var string
      */
-    private string $iban;
+    private string $iban = '';
 
     /**
      * @var string
      */
-    private string $expiryMonth;
+    private string $expiryMonth = '';
 
     /**
      * @var string
      */
-    private string $bankName;
+    private string $bankName = '';
 
     /**
      * @return string

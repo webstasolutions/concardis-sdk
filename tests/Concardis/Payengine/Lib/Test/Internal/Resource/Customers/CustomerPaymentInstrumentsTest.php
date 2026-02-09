@@ -29,9 +29,9 @@ class CustomerPaymentInstrumentsTest extends TestCase
     }
 
     /**
-     * @return \PHPUnit_Framework_MockObject_MockObject
+     * @return \PHPUnit\Framework\MockObject\MockObject
      */
-    protected function getConnectionMock(): \PHPUnit_Framework_MockObject_MockObject
+    protected function getConnectionMock(): \PHPUnit\Framework\MockObject\MockObject
     {
         $mock = $this->createMock(Connection::class);
 

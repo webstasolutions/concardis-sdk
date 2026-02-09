@@ -14,14 +14,14 @@ class AbstractOrder extends AbstractModel
 {
 
     /**
-     * @var int
+     * @var int|null
      */
-    protected int $terms;
+    protected ?int $terms = null;
 
     /**
-     * @var integer
+     * @var integer|null
      */
-    protected int $privacy;
+    protected ?int $privacy = null;
 
     /**
      * @var string
@@ -39,39 +39,39 @@ class AbstractOrder extends AbstractModel
     protected string $statementDescription = '';
 
     /**
-     * @var integer
+     * @var integer|null
      */
-    protected int $initialAmount;
+    protected ?int $initialAmount = null;
 
     /**
      * @var string
      */
-    protected string $currency;
+    protected string $currency = '';
 
     /**
-     * @var array
+     * @var array|null
      */
-    protected array $basket;
-
-    /**
-     * @var string
-     */
-    protected string $customer;
+    protected ?array $basket = null;
 
     /**
      * @var string
      */
-    protected string $persona;
+    protected string $customer = '';
 
     /**
      * @var string
      */
-    protected string $billingAddress;
+    protected string $persona = '';
 
     /**
      * @var string
      */
-    protected string $shippingAddress;
+    protected string $billingAddress = '';
+
+    /**
+     * @var string
+     */
+    protected string $shippingAddress = '';
 
     /**
      * @var string
@@ -81,17 +81,17 @@ class AbstractOrder extends AbstractModel
     /**
      * @var string
      */
-    protected string $channel;
+    protected string $channel = '';
 
     /**
      * @var string
      */
-    protected string $source;
+    protected string $source = '';
 
     /**
      * @return int
      */
-    public function getTerms(): int
+    public function getTerms(): ?int
     {
         return $this->terms;
     }
@@ -115,7 +115,7 @@ class AbstractOrder extends AbstractModel
     /**
      * @return int
      */
-    public function getPrivacy(): int
+    public function getPrivacy(): ?int
     {
         return $this->privacy;
     }
@@ -192,7 +192,7 @@ class AbstractOrder extends AbstractModel
     /**
      * @return int
      */
-    public function getInitialAmount(): int
+    public function getInitialAmount(): ?int
     {
         return $this->initialAmount;
     }
@@ -228,7 +228,7 @@ class AbstractOrder extends AbstractModel
     /**
      * @return array
      */
-    public function getBasket(): array
+    public function getBasket(): ?array
     {
         return $this->basket;
     }

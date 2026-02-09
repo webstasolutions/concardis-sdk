@@ -41,7 +41,7 @@ class DateTimeHelper
      *
      * @return bool
      */
-    public static function isValidTimeStamp(int|float $timestamp): bool
+    public static function isValidTimeStamp(int|float|string $timestamp): bool
     {
         $check = (is_int($timestamp) || is_float($timestamp)) ? $timestamp : (string)(int)$timestamp;
         return ($check === $timestamp) && ((int)$timestamp <= PHP_INT_MAX) && ((int)$timestamp >= ~PHP_INT_MAX);

@@ -14,42 +14,42 @@ class Address extends AbstractModel
     /**
      * @var string
      */
-    private string $fax;
+    private string $fax = '';
 
     /**
      * @var string
      */
-    private string $phone;
+    private string $phone = '';
 
     /**
      * @var string
      */
-    private string $city;
+    private string $city = '';
 
     /**
      * @var string
      */
-    private string $houseNumber;
+    private string $houseNumber = '';
 
     /**
      * @var string
      */
-    private string $firstName;
+    private string $firstName = '';
 
     /**
      * @var string
      */
-    private string $state;
+    private string $state = '';
 
     /**
      * @var string|null
      */
-    private ?string $title;
+    private ?string $title = null;
 
     /**
      * @var string|null
      */
-    private ?string $street;
+    private ?string $street = null;
 
     /**
      * @var string
@@ -59,22 +59,22 @@ class Address extends AbstractModel
     /**
      * @var string
      */
-    private string $zip;
+    private string $zip = '';
 
     /**
      * @var string
      */
-    private string $lastName;
+    private string $lastName = '';
 
     /**
      * @var string
      */
-    private string $mobile;
+    private string $mobile = '';
 
     /**
      * @var string
      */
-    private string $country;
+    private string $country = '';
 
     /**
      * @return string
@@ -187,7 +187,7 @@ class Address extends AbstractModel
     /**
      * @return string
      */
-    public function getTitle(): string
+    public function getTitle(): ?string
     {
         return $this->title;
     }
@@ -205,7 +205,7 @@ class Address extends AbstractModel
     /**
      * @return string
      */
-    public function getStreet(): string
+    public function getStreet(): ?string
     {
         return $this->street;
     }

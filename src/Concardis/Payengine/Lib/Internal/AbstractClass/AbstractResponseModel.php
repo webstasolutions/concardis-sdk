@@ -12,17 +12,17 @@ abstract class AbstractResponseModel extends AbstractModel
     /**
      * @var integer
      */
-    protected int $createdAt;
+    protected int $createdAt = 0;
 
     /**
      * @var integer
      */
-    protected int $modifiedAt;
+    protected int $modifiedAt = 0;
 
     /**
      * @var array
      */
-    protected array $errors;
+    protected array $errors = [];
 
     /**
      * @return int

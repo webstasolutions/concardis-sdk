@@ -27,13 +27,13 @@ class CustomersTest extends TestCase
      */
     private $payengine;
 
-    public function setup(){
+    protected function setUp(): void {
         $this->payengine = new PayEngine(new MerchantConfiguration());
         $this->payengine->setConnection($this->getConnectionMock());
     }
 
     /**
-     * @return \PHPUnit_Framework_MockObject_MockObject
+     * @return \PHPUnit\Framework\MockObject\MockObject
      */
     protected function getConnectionMock(){
         $mock = $this->createMock(Connection::class);
@@ -78,8 +78,8 @@ class CustomersTest extends TestCase
                 '{"email":"postcustomerresourceexceptiontest@testemail.io","merchantCustomerId":"customer_postcustomerresourceexceptiontest"}', 
                 $e->getPayload()
             );
-            $this->assertEquals('', $e->getRequestHeaders());
-            $this->assertEquals('', $e->getResponseHeader());
+            $this->assertEquals([], $e->getRequestHeaders());
+            $this->assertEquals([], $e->getResponseHeader());
             $this->assertEquals('', $e->getResponseBody());
         }
     }
@@ -203,24 +203,24 @@ class CustomersTest extends TestCase
 
     /**
      * @test
-     * @expectedException \Exception
      */
     public function getSubResourceAddresses_should_fail(){
+        $this->expectException(\Exception::class);
         $this->payengine->customer()->addresses();
     }
     /**
      * @test
-     * @expectedException \Exception
      */
     public function getSubResourcePersonas_should_fail(){
+        $this->expectException(\Exception::class);
         $this->payengine->customer()->personas();
     }
 
     /**
      * @test
-     * @expectedException \Exception
      */
     public function getSubResourcePaymentInstruments_should_fail(){
+        $this->expectException(\Exception::class);
         $this->payengine->customer()->paymentInstruments();
     }
 }
