@@ -2,7 +2,9 @@
     <testsuites>
         <testsuite name="UnitTest">
             <directory>tests</directory>
-            <exclude>tests/Concardis/Payengine/Lib/Test/IntegrationTest.php</exclude>
+            <exclude>
+                <file>tests/Concardis/Payengine/Lib/Test/IntegrationTest.php</file>
+            </exclude>
         </testsuite>
     </testsuites>
 
