@@ -86,7 +86,7 @@ class ReferencingTransaction extends AbstractModel
     }
 
     /**
-     * @return array
+     * @return array|null
      */
     public function getBasket(): ?array
     {

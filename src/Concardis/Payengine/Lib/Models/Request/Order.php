@@ -45,7 +45,7 @@ class Order extends AbstractOrder
     }
 
     /**
-     * @return array
+     * @return array|null
      */
     public function getAllowedProducts(): ?array
     {
