@@ -52,9 +52,9 @@ class Address extends AbstractResponseModel
     private ?string $title = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    private string $street = '';
+    private ?string $street = null;
 
     /**
      * @var string|null
@@ -206,9 +206,9 @@ class Address extends AbstractResponseModel
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getTitle(): string
+    public function getTitle(): ?string
     {
         return $this->title;
     }
@@ -224,18 +224,18 @@ class Address extends AbstractResponseModel
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getStreet(): string
+    public function getStreet(): ?string
     {
         return $this->street;
     }
 
     /**
-     * @param string $street
+     * @param string|null $street
      * @return Address
      */
-    public function setStreet(string $street): self
+    public function setStreet(?string $street): self
     {
         $this->street = $street;
         return $this;

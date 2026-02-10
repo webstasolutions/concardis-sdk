@@ -10,14 +10,14 @@ abstract class AbstractResponseModel extends AbstractModel
 {
 
     /**
-     * @var integer
+     * @var integer|null
      */
-    protected int $createdAt = 0;
+    protected ?int $createdAt = null;
 
     /**
-     * @var integer
+     * @var integer|null
      */
-    protected int $modifiedAt = 0;
+    protected ?int $modifiedAt = null;
 
     /**
      * @var array
@@ -25,36 +25,36 @@ abstract class AbstractResponseModel extends AbstractModel
     protected array $errors = [];
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getCreatedAt(): int
+    public function getCreatedAt(): ?int
     {
         return $this->createdAt;
     }
 
     /**
-     * @param int $createdAt
+     * @param int|null $createdAt
      * @return AbstractResponseModel
      */
-    public function setCreatedAt(int $createdAt): self
+    public function setCreatedAt(?int $createdAt): self
     {
         $this->createdAt = $createdAt;
         return $this;
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getModifiedAt(): int
+    public function getModifiedAt(): ?int
     {
         return $this->modifiedAt;
     }
 
     /**
-     * @param int $modifiedAt
+     * @param int|null $modifiedAt
      * @return AbstractResponseModel
      */
-    public function setModifiedAt(int $modifiedAt): self
+    public function setModifiedAt(?int $modifiedAt): self
     {
         $this->modifiedAt = $modifiedAt;
         return $this;

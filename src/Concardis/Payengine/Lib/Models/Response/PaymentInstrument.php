@@ -32,9 +32,9 @@ class PaymentInstrument extends AbstractResponseModel
     private bool $recurring = false;
 
     /**
-     * @var array
+     * @var array|null
      */
-    private array $attributes = [];
+    private ?array $attributes = null;
 
     /**
      * @var  string
@@ -65,9 +65,9 @@ class PaymentInstrument extends AbstractResponseModel
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getMerchantPaymentInstrumentId(): string
+    public function getMerchantPaymentInstrumentId(): ?string
     {
         return $this->merchantPaymentInstrumentId;
     }
@@ -119,18 +119,18 @@ class PaymentInstrument extends AbstractResponseModel
     }
 
     /**
-     * @return array
+     * @return array|null
      */
-    public function getAttributes(): array
+    public function getAttributes(): ?array
     {
         return $this->attributes;
     }
 
     /**
-     * @param array $attributes
+     * @param array|null $attributes
      * @return PaymentInstrument
      */
-    public function setAttributes(array $attributes): self
+    public function setAttributes(?array $attributes): self
     {
         $this->attributes = $attributes;
         return $this;

@@ -27,18 +27,18 @@ class Order extends AbstractOrder
     private string $transactionType = '';
 
     /**
-     * @return mixed
+     * @return Async|null
      */
-    public function getAsync(): mixed
+    public function getAsync(): ?Async
     {
         return $this->async;
     }
 
     /**
-     * @param mixed $async
+     * @param Async|null $async
      * @return Order
      */
-    public function setAsync(mixed $async): self
+    public function setAsync(?Async $async): self
     {
         $this->async = $async;
         return $this;
