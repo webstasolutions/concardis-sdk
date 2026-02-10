@@ -185,7 +185,7 @@ class Address extends AbstractModel
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getTitle(): ?string
     {
@@ -203,7 +203,7 @@ class Address extends AbstractModel
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getStreet(): ?string
     {
