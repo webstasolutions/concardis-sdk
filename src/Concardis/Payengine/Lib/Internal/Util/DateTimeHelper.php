@@ -37,7 +37,7 @@ class DateTimeHelper
     }
 
     /**
-     * @param int|float $timestamp
+     * @param int|float|string $timestamp
      *
      * @return bool
      */

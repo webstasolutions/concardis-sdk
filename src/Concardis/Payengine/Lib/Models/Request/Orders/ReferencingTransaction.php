@@ -12,9 +12,9 @@ class ReferencingTransaction extends AbstractModel
 {
 
     /**
-     * @var integer
+     * @var integer|null
      */
-    private int $initialAmount = 0;
+    private ?int $initialAmount = null;
 
     /**
      * @var string

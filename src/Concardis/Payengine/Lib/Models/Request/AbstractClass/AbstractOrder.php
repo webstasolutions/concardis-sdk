@@ -89,7 +89,7 @@ class AbstractOrder extends AbstractModel
     protected string $source = '';
 
     /**
-     * @return int
+     * @return int|null
      */
     public function getTerms(): ?int
     {
@@ -113,7 +113,7 @@ class AbstractOrder extends AbstractModel
     }
 
     /**
-     * @return int
+     * @return int|null
      */
     public function getPrivacy(): ?int
     {
@@ -190,7 +190,7 @@ class AbstractOrder extends AbstractModel
     }
 
     /**
-     * @return int
+     * @return int|null
      */
     public function getInitialAmount(): ?int
     {
@@ -226,7 +226,7 @@ class AbstractOrder extends AbstractModel
     }
 
     /**
-     * @return array
+     * @return array|null
      */
     public function getBasket(): ?array
     {
