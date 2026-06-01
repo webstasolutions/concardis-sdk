@@ -32,7 +32,7 @@ class IntegrationTest extends TestCase
      */
     protected $payengine;
 
-    public function setUp() {
+    protected function setUp(): void {
         $this->merchantConfig = new MerchantConfiguration();
         $this->merchantConfig->setIsLiveMode(
             IntegrationTestConfig::TEST_CONFIG_LIVE_MODE
@@ -131,16 +131,16 @@ class IntegrationTest extends TestCase
         $this->assertInstanceOf(\Concardis\Payengine\Lib\Models\Response\Order::class, $orderFromResponse);
 
         $transactionListFromResponse = $orderFromResponse->getTransactions();
-        $this->assertInternalType( 'array', $transactionListFromResponse);
+        $this->assertIsArray($transactionListFromResponse);
 
         /* @var $nestedTransaction Transaction */
         $nestedTransaction = $transactionListFromResponse[0];
         $this->assertInstanceOf( Transaction::class, $nestedTransaction);
 
         $nestedTransactionList = $nestedTransaction->getTransactions();
-        $this->assertInternalType( 'array', $nestedTransactionList);
+        $this->assertIsArray($nestedTransactionList);
         $this->assertEquals( 2, count($nestedTransactionList));
-        $this->assertInternalType( 'string', $nestedTransactionList[0]);
+        $this->assertIsString($nestedTransactionList[0]);
         $this->assertEquals( $referencingTransactionResponse->getTransactionId(), $nestedTransactionList[0]);
         $this->assertInstanceOf( Transaction::class, $nestedTransactionList[1]);
 

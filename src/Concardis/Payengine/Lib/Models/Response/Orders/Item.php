@@ -14,42 +14,42 @@ class Item extends AbstractModel
     /**
      * @var string
      */
-    private string $name;
+    private string $name = '';
 
     /**
      * @var string
      */
-    private string $articleNumber;
+    private string $articleNumber = '';
 
     /**
      * @var integer
      */
-    private int $totalPrice;
+    private int $totalPrice = 0;
 
     /**
      * @var integer
      */
-    private int $totalPriceWithTax;
+    private int $totalPriceWithTax = 0;
 
     /**
      * @var integer
      */
-    private int $unitPrice;
+    private int $unitPrice = 0;
 
     /**
      * @var integer
      */
-    private int $unitPriceWithTax;
+    private int $unitPriceWithTax = 0;
 
     /**
      * @var integer
      */
-    private int|float $tax;
+    private int|float $tax = 0;
 
     /**
      * @var integer
      */
-    private int $quantity;
+    private int $quantity = 0;
 
     /**
      * @return string

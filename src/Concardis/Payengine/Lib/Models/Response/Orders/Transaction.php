@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Concardis\Payengine\Lib\Models\Response\Orders;
 
@@ -17,74 +17,74 @@ class Transaction extends AbstractResponseModel
     );
 
     /**
-     * @var string
+     * @var string|null
      */
-    private $description;
+    private ?string $description = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    private $type;
+    private ?string $type = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    private $parentTransaction;
+    private ?string $parentTransaction = null;
 
     /**
-     * @var integer
+     * @var int|null
      */
-    private $canceledAmount;
+    private ?int $canceledAmount = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    private $transactionId;
+    private ?string $transactionId = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    private $currency;
+    private ?string $currency = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    private $status;
+    private ?string $status = null;
 
     /**
-     * @var string
+     * @var Order|string|array|null
      */
-    private $order;
+    private Order|string|array|null $order = null;
 
     /**
-     * @var array of Concardis\Payengine\Lib\Models\Response\Orders\Item
+     * @var array|null
      */
-    private $basket;
+    private ?array $basket = null;
 
     /**
-     * @var array of Concardis\Payengine\Lib\Models\Response\Orders\Transaction
+     * @var array|null
      */
-    private $transactions;
+    private ?array $transactions = null;
 
     /**
-     * @var integer
+     * @var int|null
      */
-    private $refundedAmount;
+    private ?int $refundedAmount = null;
 
     /**
-     * @var integer
+     * @var int|null
      */
-    private $capturedAmount;
+    private ?int $capturedAmount = null;
 
     /**
-     * @var integer
+     * @var int|null
      */
-    private $initialAmount;
+    private ?int $initialAmount = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    private $providerCode;
+    private ?string $providerCode = null;
 
     /**
      * @var string|null
@@ -92,227 +92,255 @@ class Transaction extends AbstractResponseModel
     private ?string $merchantMessage = null;
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getType()
+    public function getType(): ?string
     {
         return $this->type;
     }
 
     /**
-     * @param string $type
+     * @param string|null $type
+     * @return self
      */
-    public function setType($type)
+    public function setType(?string $type): self
     {
         $this->type = $type;
+        return $this;
     }
 
     /**
-     * @return array
+     * @return array|null
      */
-    public function getBasket()
+    public function getBasket(): ?array
     {
         return $this->basket;
     }
 
     /**
-     * @param array $basket
+     * @param array|null $basket
+     * @return self
      */
-    public function setBasket($basket)
+    public function setBasket(?array $basket): self
     {
         $this->basket = $basket;
+        return $this;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getDescription()
+    public function getDescription(): ?string
     {
         return $this->description;
     }
 
     /**
-     * @param string $description
+     * @param string|null $description
+     * @return self
      */
-    public function setDescription($description)
+    public function setDescription(?string $description): self
     {
         $this->description = $description;
+        return $this;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getParentTransaction()
+    public function getParentTransaction(): ?string
     {
         return $this->parentTransaction;
     }
 
     /**
-     * @param string $parentTransaction
+     * @param string|null $parentTransaction
+     * @return self
      */
-    public function setParentTransaction($parentTransaction)
+    public function setParentTransaction(?string $parentTransaction): self
     {
         $this->parentTransaction = $parentTransaction;
+        return $this;
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getCanceledAmount()
+    public function getCanceledAmount(): ?int
     {
         return $this->canceledAmount;
     }
 
     /**
-     * @param int $canceledAmount
+     * @param int|null $canceledAmount
+     * @return self
      */
-    public function setCanceledAmount($canceledAmount)
+    public function setCanceledAmount(?int $canceledAmount): self
     {
         $this->canceledAmount = $canceledAmount;
+        return $this;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getTransactionId()
+    public function getTransactionId(): ?string
     {
         return $this->transactionId;
     }
 
     /**
-     * @param string $transactionId
+     * @param string|null $transactionId
+     * @return self
      */
-    public function setTransactionId($transactionId)
+    public function setTransactionId(?string $transactionId): self
     {
         $this->transactionId = $transactionId;
+        return $this;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getCurrency()
+    public function getCurrency(): ?string
     {
         return $this->currency;
     }
 
     /**
-     * @param string $currency
+     * @param string|null $currency
+     * @return self
      */
-    public function setCurrency($currency)
+    public function setCurrency(?string $currency): self
     {
         $this->currency = $currency;
+        return $this;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getStatus()
+    public function getStatus(): ?string
     {
         return $this->status;
     }
 
     /**
-     * @param string $status
+     * @param string|null $status
+     * @return self
      */
-    public function setStatus($status)
+    public function setStatus(?string $status): self
     {
         $this->status = $status;
+        return $this;
     }
 
     /**
-     * @return string
+     * @return Order|string|array|null
      */
-    public function getOrder()
+    public function getOrder(): Order|string|array|null
     {
         return $this->order;
     }
 
     /**
-     * @param string $order
+     * @param Order|string|array|null $order
+     * @return self
      */
-    public function setOrder($order)
+    public function setOrder(Order|string|array|null $order): self
     {
         $this->order = $order;
+        return $this;
     }
 
     /**
-     * @return array
+     * @return array|null
      */
-    public function getTransactions()
+    public function getTransactions(): ?array
     {
         return $this->transactions;
     }
 
     /**
-     * @param array $transactions
+     * @param array|null $transactions
+     * @return self
      */
-    public function setTransactions($transactions)
+    public function setTransactions(?array $transactions): self
     {
         $this->transactions = $transactions;
+        return $this;
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getRefundedAmount()
+    public function getRefundedAmount(): ?int
     {
         return $this->refundedAmount;
     }
 
     /**
-     * @param int $refundedAmount
+     * @param int|null $refundedAmount
+     * @return self
      */
-    public function setRefundedAmount($refundedAmount)
+    public function setRefundedAmount(?int $refundedAmount): self
     {
         $this->refundedAmount = $refundedAmount;
+        return $this;
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getCapturedAmount()
+    public function getCapturedAmount(): ?int
     {
         return $this->capturedAmount;
     }
 
     /**
-     * @param int $capturedAmount
+     * @param int|null $capturedAmount
+     * @return self
      */
-    public function setCapturedAmount($capturedAmount)
+    public function setCapturedAmount(?int $capturedAmount): self
     {
         $this->capturedAmount = $capturedAmount;
+        return $this;
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getInitialAmount()
+    public function getInitialAmount(): ?int
     {
         return $this->initialAmount;
     }
 
     /**
-     * @param int $initialAmount
+     * @param int|null $initialAmount
+     * @return self
      */
-    public function setInitialAmount($initialAmount)
+    public function setInitialAmount(?int $initialAmount): self
     {
         $this->initialAmount = $initialAmount;
+        return $this;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getProviderCode()
+    public function getProviderCode(): ?string
     {
         return $this->providerCode;
     }
 
     /**
-     * @param string $providerCode
+     * @param string|null $providerCode
+     * @return self
      */
-    public function setProviderCode($providerCode)
+    public function setProviderCode(?string $providerCode): self
     {
         $this->providerCode = $providerCode;
+        return $this;
     }
 
     /**
@@ -325,7 +353,7 @@ class Transaction extends AbstractResponseModel
 
     /**
      * @param string|null $merchantMessage
-     * @return $this
+     * @return self
      */
     public function setMerchantMessage(?string $merchantMessage): self
     {

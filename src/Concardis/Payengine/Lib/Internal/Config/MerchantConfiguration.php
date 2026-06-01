@@ -11,17 +11,17 @@ class MerchantConfiguration
     /**
      * @var string
      */
-    private string $merchantId;
+    private string $merchantId = '';
 
     /**
      * @var string
      */
-    private string $apiKey;
+    private string $apiKey = '';
 
     /**
      * @var boolean
      */
-    private bool $isLiveMode;
+    private bool $isLiveMode = false;
 
     /**
      * @var string|null

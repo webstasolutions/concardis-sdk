@@ -17,10 +17,10 @@ class TransactionTest extends TestCase
      */
     private $testedClass;
 
-    public function setUp()
+    protected function setUp(): void
     {
-        $this->testedClass = TransactionFixture::getResponseChild();
         parent::setUp();
+        $this->testedClass = TransactionFixture::getResponseChild();
     }
 
     /**
@@ -64,7 +64,7 @@ class TransactionTest extends TestCase
         $this->assertArrayHasKey('capturedAmount', $responseFromMiddleware);
         $this->assertArrayHasKey('initialAmount', $responseFromMiddleware);
         $this->assertArrayHasKey('providerCode', $responseFromMiddleware);
-        $this->assertInternalType('array', $responseFromMiddleware['order']);
+        $this->assertIsArray($responseFromMiddleware['order']);
 
         $transactionFromResponse = new Transaction();
         $transactionFromResponse->__fromArray($responseFromMiddleware);
@@ -95,7 +95,7 @@ class TransactionTest extends TestCase
         $this->assertArrayHasKey('capturedAmount', $responseFromMiddleware);
         $this->assertArrayHasKey('initialAmount', $responseFromMiddleware);
         $this->assertArrayHasKey('providerCode', $responseFromMiddleware);
-        $this->assertInternalType('array', $responseFromMiddleware['order']);
+        $this->assertIsArray($responseFromMiddleware['order']);
 
         $transactionFromResponse = new Transaction();
         $transactionFromResponse->__fromArray($responseFromMiddleware);

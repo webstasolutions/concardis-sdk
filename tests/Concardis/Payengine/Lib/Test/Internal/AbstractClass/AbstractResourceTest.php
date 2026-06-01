@@ -28,25 +28,25 @@ class AbstractResourceTest extends TestCase
 
     /**
      * @test
-     * @expectedException \Exception
      */
     public function emptyFilterArrayTest_should_fail(){
+        $this->expectException(\Exception::class);
         $this->payEngine->paymentInstruments()->get([]);
     }
 
     /**
      * @test
-     * @expectedException \Exception
      */
     public function invalidResourceId_should_fail(){
+        $this->expectException(\Exception::class);
         $this->payEngine->paymentInstruments(1);
     }
 
     /**
      * @test
-     * @expectedException \Exception
      */
     public function numericFilterArrayTest_should_fail(){
+        $this->expectException(\Exception::class);
         $this->payEngine->paymentInstruments()->get(['test']);
     }
 

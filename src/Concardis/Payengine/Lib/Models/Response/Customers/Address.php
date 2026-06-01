@@ -14,72 +14,72 @@ class Address extends AbstractResponseModel
     /**
      * @var string
      */
-    private string $fax;
+    private string $fax = '';
 
     /**
      * @var string
      */
-    private string $phone;
+    private string $phone = '';
 
     /**
      * @var string
      */
-    private string $city;
+    private string $city = '';
 
     /**
      * @var string
      */
-    private string $addressId;
+    private string $addressId = '';
 
     /**
      * @var string
      */
-    private string $houseNumber;
+    private string $houseNumber = '';
 
     /**
      * @var string
      */
-    private string $firstName;
+    private string $firstName = '';
 
     /**
      * @var string
      */
-    private string $state;
+    private string $state = '';
 
     /**
      * @var string|null
      */
-    private ?string $title;
-
-    /**
-     * @var string
-     */
-    private string $street;
+    private ?string $title = null;
 
     /**
      * @var string|null
      */
-    private ?string $additionalDetails;
+    private ?string $street = null;
+
+    /**
+     * @var string|null
+     */
+    private ?string $additionalDetails = null;
 
     /**
      * @var string
      */
-    private string $zip;
+    private string $zip = '';
 
     /**
      * @var string
      */
-    private string $lastName;
+    private string $lastName = '';
 
     /**
      * @var string
      */
-    private string $mobile;
+    private string $mobile = '';
 
     /**
      * @var string
      */
-    private string $country;
+    private string $country = '';
 
     /**
      * @return string
@@ -206,9 +206,9 @@ class Address extends AbstractResponseModel
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getTitle(): string
+    public function getTitle(): ?string
     {
         return $this->title;
     }
@@ -224,18 +224,18 @@ class Address extends AbstractResponseModel
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getStreet(): string
+    public function getStreet(): ?string
     {
         return $this->street;
     }
 
     /**
-     * @param string $street
+     * @param string|null $street
      * @return Address
      */
-    public function setStreet(string $street): self
+    public function setStreet(?string $street): self
     {
         $this->street = $street;
         return $this;

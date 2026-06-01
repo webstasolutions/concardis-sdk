@@ -20,7 +20,7 @@ class ConnectionTest extends TestCase
     /**
      * @param bool $returnError
      *
-     * @return \PHPUnit_Framework_MockObject_MockObject
+     * @return \PHPUnit\Framework\MockObject\MockObject
      */
     private function getCurlMock($returnError = false){
         $mock = $this->createMock(Curl::class);
@@ -77,9 +77,9 @@ class ConnectionTest extends TestCase
 
     /**
      * @test
-     * @expectedException \Concardis\Payengine\Lib\Internal\Exception\PayEngineResourceException
      */
     public function postTest_negative(){
+        $this->expectException(\Concardis\Payengine\Lib\Internal\Exception\PayEngineResourceException::class);
         $this->connection = new Connection($this->getCurlMock(true));
         $this->connection->setMerchantConfig(new MerchantConfiguration());
         $this->connection->post('test', array());
@@ -97,9 +97,9 @@ class ConnectionTest extends TestCase
 
     /**
      * @test
-     * @expectedException \Concardis\Payengine\Lib\Internal\Exception\PayEngineResourceException
      */
     public function patchTest_negative(){
+        $this->expectException(\Concardis\Payengine\Lib\Internal\Exception\PayEngineResourceException::class);
         $this->connection = new Connection($this->getCurlMock(true));
         $this->connection->setMerchantConfig(new MerchantConfiguration());
         $this->connection->patch('test', array());
@@ -117,9 +117,9 @@ class ConnectionTest extends TestCase
 
     /**
      * @test
-     * @expectedException \Concardis\Payengine\Lib\Internal\Exception\PayEngineResourceException
      */
     public function deleteTest_negative(){
+        $this->expectException(\Concardis\Payengine\Lib\Internal\Exception\PayEngineResourceException::class);
         $this->connection = new Connection($this->getCurlMock(true));
         $this->connection->setMerchantConfig(new MerchantConfiguration());
         $this->connection->delete('test');
@@ -147,9 +147,9 @@ class ConnectionTest extends TestCase
 
     /**
      * @test
-     * @expectedException \Concardis\Payengine\Lib\Internal\Exception\PayEngineResourceException
      */
     public function getTest_negative(){
+        $this->expectException(\Concardis\Payengine\Lib\Internal\Exception\PayEngineResourceException::class);
         $this->connection = new Connection($this->getCurlMock(true));
         $this->connection->setMerchantConfig(new MerchantConfiguration());
         $this->connection->get('test');

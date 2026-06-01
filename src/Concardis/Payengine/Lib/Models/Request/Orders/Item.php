@@ -14,42 +14,42 @@ class Item extends AbstractModel
     /**
      * @var string
      */
-    private string $name;
+    private string $name = '';
 
     /**
      * @var string
      */
-    private string $articleNumber;
+    private string $articleNumber = '';
 
     /**
-     * @var integer
+     * @var integer|null
      */
-    private int $totalPrice;
+    private ?int $totalPrice = null;
 
     /**
-     * @var integer
+     * @var integer|null
      */
-    private int $totalPriceWithTax;
+    private ?int $totalPriceWithTax = null;
 
     /**
-     * @var integer
+     * @var integer|null
      */
-    private int $unitPrice;
+    private ?int $unitPrice = null;
 
     /**
-     * @var integer
+     * @var integer|null
      */
-    private int $unitPriceWithTax;
+    private ?int $unitPriceWithTax = null;
 
     /**
-     * @var integer
+     * @var int|string|null
      */
-    private int $tax;
+    private int|string|null $tax = null;
 
     /**
-     * @var integer
+     * @var integer|null
      */
-    private int $quantity;
+    private ?int $quantity = null;
 
     /**
      * @return string
@@ -88,9 +88,9 @@ class Item extends AbstractModel
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getTotalPrice(): int
+    public function getTotalPrice(): ?int
     {
         return $this->totalPrice;
     }
@@ -106,9 +106,9 @@ class Item extends AbstractModel
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getTotalPriceWithTax(): int
+    public function getTotalPriceWithTax(): ?int
     {
         return $this->totalPriceWithTax;
     }
@@ -124,9 +124,9 @@ class Item extends AbstractModel
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getUnitPrice(): int
+    public function getUnitPrice(): ?int
     {
         return $this->unitPrice;
     }
@@ -142,9 +142,9 @@ class Item extends AbstractModel
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getUnitPriceWithTax(): int
+    public function getUnitPriceWithTax(): ?int
     {
         return $this->unitPriceWithTax;
     }
@@ -160,27 +160,27 @@ class Item extends AbstractModel
     }
 
     /**
-     * @return int
+     * @return int|string|null
      */
-    public function getTax(): int
+    public function getTax(): int|string|null
     {
         return $this->tax;
     }
 
     /**
-     * @param int $tax
+     * @param int|string $tax
      * @return Item
      */
-    public function setTax(int $tax): self
+    public function setTax(int|string $tax): self
     {
         $this->tax = $tax;
         return $this;
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getQuantity(): int
+    public function getQuantity(): ?int
     {
         return $this->quantity;
     }

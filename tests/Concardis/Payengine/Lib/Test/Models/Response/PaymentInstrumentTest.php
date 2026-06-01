@@ -20,10 +20,10 @@ class PaymentInstrumentTest extends TestCase
      */
     private $testedClass;
 
-    public function setUp()
+    protected function setUp(): void
     {
-        $this->testedClass = PaymentInstrumentFixture::getResponse();
         parent::setUp();
+        $this->testedClass = PaymentInstrumentFixture::getResponse();
     }
 
     /**

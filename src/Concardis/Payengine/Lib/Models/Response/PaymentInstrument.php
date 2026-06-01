@@ -14,12 +14,12 @@ class PaymentInstrument extends AbstractResponseModel
     /**
      * @var string
      */
-    private string $paymentInstrumentId;
+    private string $paymentInstrumentId = '';
 
     /**
      * @var string|null
      */
-    private ?string $merchantPaymentInstrumentId;
+    private ?string $merchantPaymentInstrumentId = null;
 
     /**
      * @var string|null
@@ -29,22 +29,22 @@ class PaymentInstrument extends AbstractResponseModel
     /**
      * @var boolean
      */
-    private bool $recurring;
+    private bool $recurring = false;
 
     /**
-     * @var array
+     * @var array|null
      */
-    private array $attributes;
-
-    /**
-     * @var  string
-     */
-    private string $origin;
+    private ?array $attributes = null;
 
     /**
      * @var  string
      */
-    private string $type;
+    private string $origin = '';
+
+    /**
+     * @var  string
+     */
+    private string $type = '';
 
     /**
      * @return string
@@ -65,9 +65,9 @@ class PaymentInstrument extends AbstractResponseModel
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getMerchantPaymentInstrumentId(): string
+    public function getMerchantPaymentInstrumentId(): ?string
     {
         return $this->merchantPaymentInstrumentId;
     }
@@ -119,18 +119,18 @@ class PaymentInstrument extends AbstractResponseModel
     }
 
     /**
-     * @return array
+     * @return array|null
      */
-    public function getAttributes(): array
+    public function getAttributes(): ?array
     {
         return $this->attributes;
     }
 
     /**
-     * @param array $attributes
+     * @param array|null $attributes
      * @return PaymentInstrument
      */
-    public function setAttributes(array $attributes): self
+    public function setAttributes(?array $attributes): self
     {
         $this->attributes = $attributes;
         return $this;

@@ -53,10 +53,10 @@ class DateTimeHelperTest extends TestCase
      * Test conversion to RFC3339 Format
      *
      * @test
-     * @expectedException Exception
-     * @expectedExceptionMessage Must be a valid numeric value or DateTime
      */
     public function convertNumericToDateTime_withInValidString_shouldFail(){
+        $this->expectException(\Exception::class);
+        $this->expectExceptionMessage('Must be a valid numeric value or DateTime');
         DateTimeHelper::convertNumericToDateTime("a23aca1");
     }
 

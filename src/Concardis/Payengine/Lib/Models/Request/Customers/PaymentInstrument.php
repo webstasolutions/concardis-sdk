@@ -13,7 +13,7 @@ class PaymentInstrument extends AbstractModel
     /**
      * @var string
      */
-    private string $paymentInstrumentId;
+    private string $paymentInstrumentId = '';
 
     /**
      * @return string

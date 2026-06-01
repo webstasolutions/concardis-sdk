@@ -12,33 +12,33 @@ class AuthorizingTransaction extends AbstractOrder
 {
 
     /**
-     * @var \Concardis\Payengine\Lib\Models\Request\Orders\Payment\Payment
+     * @var \Concardis\Payengine\Lib\Models\Request\Orders\Payment\Payment|null
      */
-    private Payment\Payment $payment;
+    private ?Payment\Payment $payment = null;
 
     /**
      * @var string
      */
-    private string $product;
+    private string $product = '';
 
     /**
-     * @var Async
+     * @var Async|null
      */
-    private Async $async;
+    private ?Async $async = null;
 
     /**
-     * @return \Concardis\Payengine\Lib\Models\Request\Orders\Payment\Payment
+     * @return \Concardis\Payengine\Lib\Models\Request\Orders\Payment\Payment|null
      */
-    public function getPayment(): Payment\Payment
+    public function getPayment(): ?Payment\Payment
     {
         return $this->payment;
     }
 
     /**
-     * @param \Concardis\Payengine\Lib\Models\Request\Orders\Payment\Payment $payment
+     * @param \Concardis\Payengine\Lib\Models\Request\Orders\Payment\Payment|null $payment
      * @return AuthorizingTransaction
      */
-    public function setPayment(Payment\Payment $payment): self
+    public function setPayment(?Payment\Payment $payment): self
     {
         $this->payment = $payment;
         return $this;
@@ -63,18 +63,18 @@ class AuthorizingTransaction extends AbstractOrder
     }
 
     /**
-     * @return Async
+     * @return Async|null
      */
-    public function getAsync(): Async
+    public function getAsync(): ?Async
     {
         return $this->async;
     }
 
     /**
-     * @param Async $async
+     * @param Async|null $async
      * @return AuthorizingTransaction
      */
-    public function setAsync(Async $async): self
+    public function setAsync(?Async $async): self
     {
         $this->async = $async;
         return $this;

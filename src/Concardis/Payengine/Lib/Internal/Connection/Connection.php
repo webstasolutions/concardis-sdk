@@ -29,7 +29,7 @@ class Connection implements ConnectionInterface
     /**
      * @param Curl|null $curl
      */
-    public function __construct(Curl $curl = null)
+    public function __construct(?Curl $curl = null)
     {
         if (is_null($curl)) {
             $this->curl = new Curl();

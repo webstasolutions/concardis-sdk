@@ -23,10 +23,10 @@ class CustomerTest extends TestCase
      */
     private $testedClass;
 
-    public function setUp()
+    protected function setUp(): void
     {
-        $this->testedClass = CustomerFixture::getResponse();
         parent::setUp();
+        $this->testedClass = CustomerFixture::getResponse();
     }
 
     /**

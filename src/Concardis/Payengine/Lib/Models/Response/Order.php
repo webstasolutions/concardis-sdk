@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Concardis\Payengine\Lib\Models\Response;
 
@@ -25,654 +25,716 @@ class Order extends AbstractResponseModel
     );
 
     /**
-     * @var integer
+     * @var int|null
      */
-    private $terms;
+    private ?int $terms = null;
 
     /**
-     * @var integer
+     * @var int|null
      */
-    private $privacy;
+    private ?int $privacy = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    private $orderId;
+    private ?string $orderId = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    private $merchantOrderId;
+    private ?string $merchantOrderId = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    private $paymentProviderTransactionId;
+    private ?string $paymentProviderTransactionId = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    private $description;
+    private ?string $description = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    private $statementDescription;
+    private ?string $statementDescription = null;
 
     /**
-     * @var integer
+     * @var int|null
      */
-    private $initialAmount;
+    private ?int $initialAmount = null;
 
     /**
-     * @var integer
+     * @var int|null
      */
-    private $preauthorizedAmount;
+    private ?int $preauthorizedAmount = null;
 
     /**
-     * @var integer
+     * @var int|null
      */
-    private $capturedAmount;
+    private ?int $capturedAmount = null;
 
     /**
-     * @var integer
+     * @var int|null
      */
-    private $refundedAmount;
+    private ?int $refundedAmount = null;
 
     /**
-     * @var integer
+     * @var int|null
      */
-    private $canceledAmount;
+    private ?int $canceledAmount = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    private $currency;
+    private ?string $currency = null;
 
     /**
-     * @var array of Concardis\Payengine\Lib\Models\Response\Orders\Item
+     * @var array|null
      */
-    private $basket;
+    private ?array $basket = null;
 
     /**
-     * @var Customer
+     * @var Customer|string|null
      */
-    private $customer;
+    private Customer|string|null $customer = null;
 
     /**
-     * @var Persona
+     * @var Persona|null
      */
-    private $persona;
+    private ?Persona $persona = null;
 
     /**
-     * @var Address
+     * @var Address|null
      */
-    private $billingAddress;
+    private ?Address $billingAddress = null;
 
     /**
-     * @var Address
+     * @var Address|null
      */
-    private $shippingAddress;
+    private ?Address $shippingAddress = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    private $ipAddress;
+    private ?string $ipAddress = null;
 
     /**
-     * @var PaymentInstrument
+     * @var PaymentInstrument|null
      */
-    private $paymentInstrument;
+    private ?PaymentInstrument $paymentInstrument = null;
 
     /**
-     * @var array of Concardis\Payengine\Lib\Models\Response\Orders\Transaction
+     * @var array|null
      */
-    private $transactions;
+    private ?array $transactions = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    private $status;
+    private ?string $status = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    private $redirectUrl;
+    private ?string $redirectUrl = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    private $channel;
+    private ?string $channel = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    private $source;
+    private ?string $source = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    private $product;
+    private ?string $product = null;
 
     /**
-     * @var array
+     * @var array|null
      */
-    private $allowedProducts;
+    private ?array $allowedProducts = null;
 
     /**
-     * @var boolean
+     * @var bool|null
      */
-    private $settled;
+    private ?bool $settled = null;
 
     /**
-     * @var integer
+     * @var int|null
      */
-    private $settlementDate;
+    private ?int $settlementDate = null;
 
     /**
-     * @var string
+     * @var string|null
      */
-    private $transactionType;
+    private ?string $transactionType = null;
 
     /**
-     * @var Meta
+     * @var Meta|null
      */
-    private $meta;
+    private ?Meta $meta = null;
 
     /**
-     * @return integer
+     * @return int|null
      */
-    public function getTerms()
+    public function getTerms(): ?int
     {
         return $this->terms;
     }
 
     /**
-     * @param integer $terms
+     * @param int|null $terms
+     * @return self
      */
-    public function setTerms($terms)
+    public function setTerms(?int $terms): self
     {
         $this->terms = $terms;
+        return $this;
     }
 
     /**
-     * @return integer
+     * @return int|null
      */
-    public function getPrivacy()
+    public function getPrivacy(): ?int
     {
         return $this->privacy;
     }
 
     /**
-     * @param integer $privacy
+     * @param int|null $privacy
+     * @return self
      */
-    public function setPrivacy($privacy)
+    public function setPrivacy(?int $privacy): self
     {
         $this->privacy = $privacy;
+        return $this;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getOrderId()
+    public function getOrderId(): ?string
     {
         return $this->orderId;
     }
 
     /**
-     * @param string $orderId
+     * @param string|null $orderId
+     * @return self
      */
-    public function setOrderId($orderId)
+    public function setOrderId(?string $orderId): self
     {
         $this->orderId = $orderId;
+        return $this;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getMerchantOrderId()
+    public function getMerchantOrderId(): ?string
     {
         return $this->merchantOrderId;
     }
 
     /**
-     * @param string $merchantOrderId
+     * @param string|null $merchantOrderId
+     * @return self
      */
-    public function setMerchantOrderId($merchantOrderId)
+    public function setMerchantOrderId(?string $merchantOrderId): self
     {
         $this->merchantOrderId = $merchantOrderId;
+        return $this;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getPaymentProviderTransactionId()
+    public function getPaymentProviderTransactionId(): ?string
     {
         return $this->paymentProviderTransactionId;
     }
 
     /**
-     * @param string $paymentProviderTransactionId
+     * @param string|null $paymentProviderTransactionId
+     * @return self
      */
-    public function setPaymentProviderTransactionId($paymentProviderTransactionId)
+    public function setPaymentProviderTransactionId(?string $paymentProviderTransactionId): self
     {
         $this->paymentProviderTransactionId = $paymentProviderTransactionId;
+        return $this;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getDescription()
+    public function getDescription(): ?string
     {
         return $this->description;
     }
 
     /**
-     * @param string $description
+     * @param string|null $description
+     * @return self
      */
-    public function setDescription($description)
+    public function setDescription(?string $description): self
     {
         $this->description = $description;
+        return $this;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getStatementDescription()
+    public function getStatementDescription(): ?string
     {
         return $this->statementDescription;
     }
 
     /**
-     * @param string $statementDescription
+     * @param string|null $statementDescription
+     * @return self
      */
-    public function setStatementDescription($statementDescription)
+    public function setStatementDescription(?string $statementDescription): self
     {
         $this->statementDescription = $statementDescription;
+        return $this;
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getInitialAmount()
+    public function getInitialAmount(): ?int
     {
         return $this->initialAmount;
     }
 
     /**
-     * @param int $initialAmount
+     * @param int|null $initialAmount
+     * @return self
      */
-    public function setInitialAmount($initialAmount)
+    public function setInitialAmount(?int $initialAmount): self
     {
         $this->initialAmount = $initialAmount;
+        return $this;
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getPreauthorizedAmount()
+    public function getPreauthorizedAmount(): ?int
     {
         return $this->preauthorizedAmount;
     }
 
     /**
-     * @param int $preauthorizedAmount
+     * @param int|null $preauthorizedAmount
+     * @return self
      */
-    public function setPreauthorizedAmount($preauthorizedAmount)
+    public function setPreauthorizedAmount(?int $preauthorizedAmount): self
     {
         $this->preauthorizedAmount = $preauthorizedAmount;
+        return $this;
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getCapturedAmount()
+    public function getCapturedAmount(): ?int
     {
         return $this->capturedAmount;
     }
 
     /**
-     * @param int $capturedAmount
+     * @param int|null $capturedAmount
+     * @return self
      */
-    public function setCapturedAmount($capturedAmount)
+    public function setCapturedAmount(?int $capturedAmount): self
     {
         $this->capturedAmount = $capturedAmount;
+        return $this;
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getRefundedAmount()
+    public function getRefundedAmount(): ?int
     {
         return $this->refundedAmount;
     }
 
     /**
-     * @param int $refundedAmount
+     * @param int|null $refundedAmount
+     * @return self
      */
-    public function setRefundedAmount($refundedAmount)
+    public function setRefundedAmount(?int $refundedAmount): self
     {
         $this->refundedAmount = $refundedAmount;
+        return $this;
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getCanceledAmount()
+    public function getCanceledAmount(): ?int
     {
         return $this->canceledAmount;
     }
 
     /**
-     * @param int $canceledAmount
+     * @param int|null $canceledAmount
+     * @return self
      */
-    public function setCanceledAmount($canceledAmount)
+    public function setCanceledAmount(?int $canceledAmount): self
     {
         $this->canceledAmount = $canceledAmount;
+        return $this;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getCurrency()
+    public function getCurrency(): ?string
     {
         return $this->currency;
     }
 
     /**
-     * @param string $currency
+     * @param string|null $currency
+     * @return self
      */
-    public function setCurrency($currency)
+    public function setCurrency(?string $currency): self
     {
         $this->currency = $currency;
+        return $this;
     }
 
     /**
-     * @return array
+     * @return array|null
      */
-    public function getBasket()
+    public function getBasket(): ?array
     {
         return $this->basket;
     }
 
     /**
-     * @param array $basket
+     * @param array|null $basket
+     * @return self
      */
-    public function setBasket($basket)
+    public function setBasket(?array $basket): self
     {
         $this->basket = $basket;
+        return $this;
     }
 
     /**
-     * @return Customer
+     * @return Customer|string|null
      */
-    public function getCustomer()
+    public function getCustomer(): Customer|string|null
     {
         return $this->customer;
     }
 
     /**
-     * @param Customer $customer
+     * @param Customer|string|null $customer
+     * @return self
      */
-    public function setCustomer($customer)
+    public function setCustomer(Customer|string|null $customer): self
     {
         $this->customer = $customer;
+        return $this;
     }
 
     /**
-     * @return Persona
+     * @return Persona|null
      */
-    public function getPersona()
+    public function getPersona(): ?Persona
     {
         return $this->persona;
     }
 
     /**
-     * @param Persona $persona
+     * @param Persona|null $persona
+     * @return self
      */
-    public function setPersona($persona)
+    public function setPersona(?Persona $persona): self
     {
         $this->persona = $persona;
+        return $this;
     }
 
     /**
-     * @return Address
+     * @return Address|null
      */
-    public function getBillingAddress()
+    public function getBillingAddress(): ?Address
     {
         return $this->billingAddress;
     }
 
     /**
-     * @param Address $billingAddress
+     * @param Address|null $billingAddress
+     * @return self
      */
-    public function setBillingAddress($billingAddress)
+    public function setBillingAddress(?Address $billingAddress): self
     {
         $this->billingAddress = $billingAddress;
+        return $this;
     }
 
     /**
-     * @return Address
+     * @return Address|null
      */
-    public function getShippingAddress()
+    public function getShippingAddress(): ?Address
     {
         return $this->shippingAddress;
     }
 
     /**
-     * @param Address $shippingAddress
+     * @param Address|null $shippingAddress
+     * @return self
      */
-    public function setShippingAddress($shippingAddress)
+    public function setShippingAddress(?Address $shippingAddress): self
     {
         $this->shippingAddress = $shippingAddress;
+        return $this;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getIpAddress()
+    public function getIpAddress(): ?string
     {
         return $this->ipAddress;
     }
 
     /**
-     * @param string $ipAddress
+     * @param string|null $ipAddress
+     * @return self
      */
-    public function setIpAddress($ipAddress)
+    public function setIpAddress(?string $ipAddress): self
     {
         $this->ipAddress = $ipAddress;
+        return $this;
     }
 
     /**
-     * @return PaymentInstrument
+     * @return PaymentInstrument|null
      */
-    public function getPaymentInstrument()
+    public function getPaymentInstrument(): ?PaymentInstrument
     {
         return $this->paymentInstrument;
     }
 
     /**
-     * @param PaymentInstrument $paymentInstrument
+     * @param PaymentInstrument|null $paymentInstrument
+     * @return self
      */
-    public function setPaymentInstrument($paymentInstrument)
+    public function setPaymentInstrument(?PaymentInstrument $paymentInstrument): self
     {
         $this->paymentInstrument = $paymentInstrument;
+        return $this;
     }
 
     /**
-     * @return array
+     * @return array|null
      */
-    public function getTransactions()
+    public function getTransactions(): ?array
     {
         return $this->transactions;
     }
 
     /**
-     * @param array $transactions
+     * @param array|null $transactions
+     * @return self
      */
-    public function setTransactions($transactions)
+    public function setTransactions(?array $transactions): self
     {
         $this->transactions = $transactions;
+        return $this;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getStatus()
+    public function getStatus(): ?string
     {
         return $this->status;
     }
 
     /**
-     * @param string $status
+     * @param string|null $status
+     * @return self
      */
-    public function setStatus($status)
+    public function setStatus(?string $status): self
     {
         $this->status = $status;
+        return $this;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getRedirectUrl()
+    public function getRedirectUrl(): ?string
     {
         return $this->redirectUrl;
     }
 
     /**
-     * @param string $redirectUrl
+     * @param string|null $redirectUrl
+     * @return self
      */
-    public function setRedirectUrl($redirectUrl)
+    public function setRedirectUrl(?string $redirectUrl): self
     {
         $this->redirectUrl = $redirectUrl;
+        return $this;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getChannel()
+    public function getChannel(): ?string
     {
         return $this->channel;
     }
 
     /**
-     * @param string $channel
+     * @param string|null $channel
+     * @return self
      */
-    public function setChannel($channel)
+    public function setChannel(?string $channel): self
     {
         $this->channel = $channel;
+        return $this;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getSource()
+    public function getSource(): ?string
     {
         return $this->source;
     }
 
     /**
-     * @param string $source
+     * @param string|null $source
+     * @return self
      */
-    public function setSource($source)
+    public function setSource(?string $source): self
     {
         $this->source = $source;
+        return $this;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getProduct()
+    public function getProduct(): ?string
     {
         return $this->product;
     }
 
     /**
-     * @param string $product
+     * @param string|null $product
+     * @return self
      */
-    public function setProduct($product)
+    public function setProduct(?string $product): self
     {
         $this->product = $product;
+        return $this;
     }
 
     /**
-     * @return array
+     * @return array|null
      */
-    public function getAllowedProducts()
+    public function getAllowedProducts(): ?array
     {
         return $this->allowedProducts;
     }
 
     /**
-     * @param array $allowedProducts
+     * @param array|null $allowedProducts
+     * @return self
      */
-    public function setAllowedProducts($allowedProducts)
+    public function setAllowedProducts(?array $allowedProducts): self
     {
         $this->allowedProducts = $allowedProducts;
+        return $this;
     }
 
     /**
-     * @return bool
+     * @return bool|null
      */
-    public function isSettled()
+    public function isSettled(): ?bool
     {
         return $this->settled;
     }
 
     /**
-     * @param bool $settled
+     * @param bool|null $settled
+     * @return self
      */
-    public function setSettled($settled)
+    public function setSettled(?bool $settled): self
     {
         $this->settled = $settled;
+        return $this;
     }
 
     /**
-     * @return integer
+     * @return int|null
      */
-    public function getSettlementDate()
+    public function getSettlementDate(): ?int
     {
         return $this->settlementDate;
     }
 
     /**
-     * @param integer $settlementDate
+     * @param int|null $settlementDate
+     * @return self
      */
-    public function setSettlementDate($settlementDate)
+    public function setSettlementDate(?int $settlementDate): self
     {
         $this->settlementDate = $settlementDate;
+        return $this;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getTransactionType()
+    public function getTransactionType(): ?string
     {
         return $this->transactionType;
     }
 
     /**
-     * @param string $transactionType
+     * @param string|null $transactionType
+     * @return self
      */
-    public function setTransactionType($transactionType)
+    public function setTransactionType(?string $transactionType): self
     {
         $this->transactionType = $transactionType;
+        return $this;
     }
 
     /**
-     * @return Meta
+     * @return Meta|null
      */
-    public function getMeta()
+    public function getMeta(): ?Meta
     {
         return $this->meta;
     }
 
     /**
-     * @param Meta $meta
+     * @param Meta|null $meta
+     * @return self
      */
-    public function setMeta($meta)
+    public function setMeta(?Meta $meta): self
     {
         $this->meta = $meta;
+        return $this;
     }
 
 }

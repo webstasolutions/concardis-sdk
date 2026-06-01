@@ -12,24 +12,24 @@ class ReferencingTransaction extends AbstractModel
 {
 
     /**
-     * @var integer
+     * @var integer|null
      */
-    private int $initialAmount;
+    private ?int $initialAmount = null;
 
     /**
      * @var string
      */
-    private string $currency;
+    private string $currency = '';
 
     /**
      * @var string
      */
-    private string $description;
+    private string $description = '';
 
     /**
-     * @var array
+     * @var array|null
      */
-    private array $basket;
+    private ?array $basket = null;
 
     /**
      * @return int
@@ -86,9 +86,9 @@ class ReferencingTransaction extends AbstractModel
     }
 
     /**
-     * @return array
+     * @return array|null
      */
-    public function getBasket(): array
+    public function getBasket(): ?array
     {
         return $this->basket;
     }

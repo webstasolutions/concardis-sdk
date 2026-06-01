@@ -12,12 +12,12 @@ class ListWrapper
     /**
      * @var array
      */
-    private array $elements;
+    private array $elements = [];
 
     /**
      * @var integer
      */
-    private int $totalPages;
+    private int $totalPages = 0;
 
     /**
      * @return array

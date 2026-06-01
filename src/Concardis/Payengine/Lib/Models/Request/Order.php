@@ -12,42 +12,42 @@ use Concardis\Payengine\Lib\Models\Request\Orders\Async;
 class Order extends AbstractOrder
 {
     /**
-     * @var Async
+     * @var Async|null
      */
-    private Async $async;
+    private ?Async $async = null;
 
     /**
-     * @var array
+     * @var array|null
      */
-    private array $allowedProducts;
+    private ?array $allowedProducts = null;
 
     /**
      * @var string
      */
-    private string $transactionType;
+    private string $transactionType = '';
 
     /**
-     * @return mixed
+     * @return Async|null
      */
-    public function getAsync(): mixed
+    public function getAsync(): ?Async
     {
         return $this->async;
     }
 
     /**
-     * @param mixed $async
+     * @param Async|null $async
      * @return Order
      */
-    public function setAsync(mixed $async): self
+    public function setAsync(?Async $async): self
     {
         $this->async = $async;
         return $this;
     }
 
     /**
-     * @return array
+     * @return array|null
      */
-    public function getAllowedProducts(): array
+    public function getAllowedProducts(): ?array
     {
         return $this->allowedProducts;
     }

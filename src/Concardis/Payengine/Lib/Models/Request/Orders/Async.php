@@ -14,17 +14,17 @@ class Async extends AbstractModel
     /**
      * @var string
      */
-    private string $successUrl;
+    private string $successUrl = '';
 
     /**
      * @var string
      */
-    private string $failureUrl;
+    private string $failureUrl = '';
 
     /**
      * @var string
      */
-    private string $cancelUrl;
+    private string $cancelUrl = '';
 
     /**
      * @return string

@@ -3,18 +3,17 @@
         <testsuite name="UnitTest">
             <directory>tests</directory>
             <exclude>
-                <file suffix=".php" >tests/Concardis/Payengine/Lib/Test/IntegrationTest.php</file>
+                <file>tests/Concardis/Payengine/Lib/Test/IntegrationTest.php</file>
             </exclude>
         </testsuite>
     </testsuites>
 
-    <filter>
-        <whitelist processUncoveredFilesFromWhitelist="true">
+    <coverage processUncoveredFiles="true">
+        <include>
             <directory suffix=".php">src/Concardis/Payengine/Lib</directory>
-            <exclude>
-                <directory suffix=".php">tests</directory>
-            </exclude>
-        </whitelist>
-    </filter>
+        </include>
+        <exclude>
+            <directory suffix=".php">tests</directory>
+        </exclude>
+    </coverage>
 </phpunit>
-
